@@ -3,7 +3,11 @@ var apiURL = "https://nmapi.c0y.cc/";
 function login() {
     let user = uname.value;
     let passwd = pass.value;
-$.ajax(apiURL+"login.php", {
+if(user.length > 4 && user.length<16 )
+{info.innerHTML = "<t>username too long/short.</t>";}
+else if(passwd.length < 4)
+{info.innerHTML = "<t>password too short.</t>";}else{
+    $.ajax(apiURL+"login.php", {
 type:"POST",
 async:false,
 data:{ "user":user, "pass":passwd},
@@ -23,7 +27,7 @@ success:function(data){
 error:function(){
 info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info']}
 });
-    
+}
 }
 
 function login_old() {
