@@ -1,0 +1,54 @@
+{
+	"aboutBox": {
+		"h1": "About the nmBrowser start page"
+	},
+	"cancel": "Cancel",
+	"close": "shut down",
+	"confirm": "Confirm",
+	"daochu": "Export",
+	"daoru": "Import",
+	"developing": "This feature is still under development, so stay tuned.",
+	"imgPicker": {
+		"h1": "Custom photo",
+		"p": "Enter the picture address:"
+	},
+	"linkEdit": {
+		"h1": "Edit quick link",
+		"tip": "You can insert up to 8 frequently used links."
+	},
+	"map": "Navigation",
+	"menu": {
+		"2ciyuan": "2element",
+		"LTB": "Upleft",
+		"RTB": "Upright",
+		"about": "About",
+		"baidu": "Baidu",
+		"bgImage": "Background",
+		"bgImageOri": "Source",
+		"bing": "Bing",
+		"bingImage": "Bing",
+		"close": "Off",
+		"colorAuto": "System",
+		"colorDark": "Dark",
+		"colorImg": "Identify",
+		"colorLight": "Bright",
+		"colorTheme": "Theme",
+		"google": "Google",
+		"lan": "Language",
+		"mamage": "Manage",
+		"news": "News ",
+		"open": "On",
+		"quickAccess": "Quick Links",
+		"searchBox": "Search Bar",
+		"searchE": "Engine",
+		"selfImg": "Customize",
+		"shide": "Blur background when searching",
+		"siteMap": "Navigation",
+		"time": "Replace title with time",
+		"wea": "the weather"
+	},
+	"news": "News",
+	"not_available_region": "Sorry, this service is not available in your country or region.",
+	"start": "Start",
+	"title": "Homepage"
+}

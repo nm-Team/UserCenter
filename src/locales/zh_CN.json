@@ -1,0 +1,16 @@
+{
+	"title": "登录 nmTeam Account",
+	"login": "登录",
+	"loginh": "登录 nmTeam Account",
+	"name": "用户名",
+	"password": "密码",
+	"captcha": "验证码",
+	"recoMe":"记住我",
+	"haveNoAccount0": "还没有账户？",
+	"haveNoAccount1": "立即注册",
+	"resigter": "注册",
+	"cr":"©版权所有 2021 nmTeam。保留所有权利。",
+	"enterAll":"您的信息未填写完整，请填写完整后再试。",
+	"errorNet":"抱歉，网络出现问题，请检查您的网络连接或稍后再试。详细信息：",
+	"errorOccured":"发生错误："
+}

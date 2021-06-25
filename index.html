@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<title data-i18n="title"></title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<meta name='apple-mobile-web-app-status-bar-style' content='black'>
+	<meta name='format-detection' content='telephone=no'>
+	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+</head>
+
+<body>
+	<div id="bodybg"></div>
+	<div class="logBox">
+	<form action="javascript:login();">
+		<h1><img src="//logos.nmteam.agou.im/nmTeam/logo@32.png"><t data-i18n="loginh"></t></h1>
+		<label for="uname">
+			<t data-i18n="name"></t><input id="uname">
+		</label>
+		<label for="pass">
+			<t data-i18n="password"></t><input id="pass" type="password">
+		</label>
+		<label for="captcha">
+			<t data-i18n="captcha"></t><input id="captcha">
+		<img src="/" onclick="changeCaptcha();"></label>
+		<but><label for="recoMe"><input id="recoMe" type="checkbox"><i></i><t data-i18n="recoMe"></t></label><button id="login" data-i18n="login"></button></but>
+		<p id="info"></p>
+		<p>
+			<t data-i18n="haveNoAccount0"></t>
+			<a href="reg.html" data-i18n="haveNoAccount1"></a>
+		</p>
+	</form></div>
+	<p id="cr" data-i18n="cr"></p>
+</body>
+<script src="src/js/main.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+<script src="src/js/language.js"></script>
+
+</html>

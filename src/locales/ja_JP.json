@@ -1,0 +1,54 @@
+{
+	"aboutBox": {
+		"h1": "nmBrowserスタートページについて"
+	},
+	"cancel": "キャンセル",
+	"close": "閉じる",
+	"confirm": "確認する",
+	"daochu": "輸出する",
+	"daoru": "インポート",
+	"developing": "この機能はまだ開発中ですので、ご期待ください。",
+	"imgPicker": {
+		"h1": "カスタム写真 ",
+		"p": "写真の住所を入力してください："
+	},
+	"linkEdit": {
+		"h1": "クイックリンクを編集する",
+		"tip": "頻繁に使用するリンクを最大8つ挿入できます。"
+	},
+	"map": "ナビゲーション",
+	"menu": {
+		"2ciyuan": "2番目の要素",
+		"LTB": "左上隅",
+		"RTB": "右上隅",
+		"about": "について",
+		"baidu": "Baidu",
+		"bgImage": "背景画像",
+		"bgImageOri": "ソース",
+		"bing": "Bing",
+		"bingImage": "Bing",
+		"close": "消す",
+		"colorAuto": "システム ",
+		"colorDark": "濃い",
+		"colorImg": "識別する ",
+		"colorLight": "明るい",
+		"colorTheme": "テーマ",
+		"google": "Google",
+		"lan": "言語",
+		"mamage": "管理",
+		"news": "ニュース ",
+		"open": "開いた",
+		"quickAccess": "速いリーチ ",
+		"searchBox": "検索バー",
+		"searchE": "エンジン",
+		"selfImg": "カスタマイズ",
+		"shide": "検索時に背景をぼかす",
+		"siteMap": "ナビゲーション",
+		"time": "タイトルを時間に置き換えます",
+		"wea": "天候"
+	},
+	"news": "ニュース",
+	"not_available_region": "申し訳ありませんが、このサービスはお住まいの国または地域ではご利用いただけません。",
+	"start": "開始する",
+	"title": "ホームページ"
+}
