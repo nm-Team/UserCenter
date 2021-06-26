@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<title data-i18n="registertitle"></title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<meta name='apple-mobile-web-app-status-bar-style' content='black'>
+	<meta name='format-detection' content='telephone=no'>
+	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+	<script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+	<div id="bodybg"></div>
+	<div class="logBox">
+		<form action="javascript:register();">
+			<h1><img src="https://logos.nmteam.agou.im/nmTeam/logo@32.png">
+				<t data-i18n="registerh"></t>
+			</h1>
+			<h2 id="nameBox"></h2>
+			<label for="uname">
+				<t data-i18n="name"></t><input id="uname">
+			</label>
+			<label for="email">
+				<t data-i18n="email"></t><input id="email">
+			</label>
+			<label for="pass">
+				<t data-i18n="password"></t><input id="pass" type="password">
+			</label>
+			<label for="pass2">
+				<t data-i18n="passwordAgain"></t><input id="pass2" type="password">
+			</label>
+			<div class="g-recaptcha" data-sitekey="6LcKtjkaAAAAAByRsaSli3V8uteOBKpX6oHDLpeq"></div>
+			<but><label for="readNeeds"><input id="readNeeds" type="checkbox"><i></i>
+					<t data-i18n="readNeeds"></t>
+				</label><a href="https://nmteam.ml/legal/network-service-protocol.html"
+					data-i18n="network-service-protocol" target="_blank"></a>
+				<t data-i18n="readNeeds2"></t><a href="https://nmteam.ml/legal/privacy-policy.html"
+					data-i18n="privacy-policy" target="_blank"></a>
+			</but>
+			<but><button id="register" data-i18n="register"></button></but>
+			<p id="info"></p>
+			<p>
+				<t data-i18n="haveAAccount0"></t>
+				<a id="changeLoginTypeA" href="index.html" data-i18n="haveAAccount1"></a>
+			</p>
+		</form>
+	</div>
+	<p id="cr" data-i18n="cr"></p>
+
+	<script src="src/js/main.js"></script>
+	<script src="src/js/jquery.min.js"></script>
+	<script src="src/js/i18next-1.6.3.min.js"></script>
+	<script src="src/js/language.js"></script>
+
+</body>
+
+</html>

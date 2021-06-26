@@ -80,16 +80,32 @@ input,button{
     display: block;
     width: 30%;
     min-width: 300px;
+    max-height: 80%;
     padding: 20px 20px;
     transform: translate(0, -50%);
     background: var(--cardjianbiancolor);
     backdrop-filter: var(--cardjianbianword);
     -webkit-backdrop-filter: var(--cardjianbianword);
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 6px;
     transition: all 0.6s;
 }
+.logBox.full{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    min-width: auto;
+}
 .logBox h1{
     font-size: 22px;
+    font-weight: bold;
+    padding: 2px 0 10px 0;
+}
+.logBox h2{
+    font-size: 18px;
     font-weight: bold;
     padding: 2px 0 10px 0;
 }
@@ -108,7 +124,7 @@ label{
 }
 label t{
     display: inline-block;
-    min-width: 3.2em;
+    min-width: 4em;
     padding-right: 0.5em;
 }
 label input{
@@ -117,7 +133,7 @@ label input{
 .logBox but{
     display: block;
     margin: 8px 0;
-    height: 30px;
+    min-height: 21px;
 }
 .logBox but label{
     display: inline;
@@ -129,7 +145,7 @@ label input{
 .logBox p{
     font-size: 14px;
     font-weight: 400;
-    margin: 5px 0;
+    margin: 17px 0 6px 0;
     line-height: 1.6;
 }
 .logBox a{
@@ -169,15 +185,24 @@ but label input[type="checkbox"]:checked+i{
     line-height: 1.8;
 }
 @media (max-width: 650px) {
-    .logBox{
+    .logBox:not(full){
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
         width: 80%;
         min-width: auto;
-        max-height: 80%;
-        overflow-x: hidden;
-        overflow-y: auto;
     }
+}
+::-webkit-scrollbar {
+    width: 7px; 
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: var(--scroller-grey);
+}
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+    width: 0;
+    opacity: 0;
 }
