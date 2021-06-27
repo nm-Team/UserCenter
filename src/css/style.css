@@ -48,6 +48,25 @@ body.dark{
     --searchword: #ffffff;
     --input: #ffffff;
 }
+#msgBoxCover{
+    position: fixed;
+	z-index: 88888;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+#msgBoxCover.open{
+    background-color: #000000a4;
+    visibility: visible;
+}
+#msgBoxCover[smallMsg=true]{
+    background-color: #000000a4;
+    visibility: visible;
+    z-index: 999998;
+}
 input,button{
     outline: none;
     border: none;
@@ -59,6 +78,12 @@ input,button{
     -webkit-user-select: auto;
     -moz-user-select: auto;
     user-select: auto;
+}
+input[readonly]{
+    background: none;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    user-select: all;
 }
 #bodybg{
 	position: fixed;
@@ -97,7 +122,9 @@ input,button{
     left: 50%;
     transform: translate(-50%,-50%);
     width: 80%;
+    height: 80%;
     min-width: auto;
+    max-width: 460px;
 }
 .logBox h1{
     font-size: 22px;
@@ -174,6 +201,67 @@ but label input[type="checkbox"]+i{
 but label input[type="checkbox"]:checked+i{
     background-image: url(/src/img/checkbox_cked.svg);
 }
+.infoDiv{
+    max-height: 0;
+    overflow: hidden;
+    /* transition: max-height 0.8s; */
+}
+.infoDiv[open=true]{
+    max-height: 100%;
+    padding-top: 5px;
+    overflow-y: auto;
+}
+#userHead{
+    position: relative;
+    height: 70px;
+    padding: 10px 70px 10px 60px;
+}
+#userHead i{
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-image: url(https://static.hdslb.com/images/akari.jpg);
+    background-position: 0px,0px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+}
+#userHead p{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    margin-bottom: -2px;
+}
+#userHead #nick{
+    font-size: 22px;
+    font-weight: bold;
+}
+#userHead button{
+    position: absolute;
+    right: 0;
+    top: 23px;
+}
+h2 button{
+    float: right;
+    position: relative;
+    top: -6px;
+}
+.full table{
+    border: none;
+    width: 100%;
+}
+.full table td.left{
+    width: 5.5em;
+}
+.full table td.right input{
+    display: block;
+    width: calc(100% - 15px);
+}
 #cr{
     position: fixed;
     display: block;
@@ -205,4 +293,88 @@ but label input[type="checkbox"]:checked+i{
     border-radius: 10px;
     width: 0;
     opacity: 0;
+}
+.msgBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99888;
+    margin: 0px auto;
+    padding: 25px 28px;
+    width: 80%;
+    max-width: 600px;
+    height: 80%;
+    border-radius: 10px;
+    background-color: var(--cardjianbiancolor);
+    backdrop-filter: var(--cardjianbianword);
+    -webkit-backdrop-filter: var(--cardjianbianword);
+    line-height: 2;
+    transform: translate(-50%,-50%)scale(0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+.msgBox[open=true]{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%,-50%);
+    transition: all 0.2s;
+}
+.msgBox h1{
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--menu-text);
+    overflow: hidden;
+}
+.msgBox .main{
+    position: absolute;
+    top: 66px;
+    bottom: 60px;
+    left: 30px;
+    right: 30px;
+    color: var(--input);
+    overflow: auto;
+}
+.msgBox input{
+    outline: none;
+    border: none;
+    font-size: 17px;
+    padding: 10px;
+    margin: 3px 0;
+    background: var(--hovercolor);
+    border-radius: 5px;
+    width: calc(100% - 40px);
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    user-select: auto;
+}
+.msgBox .buttonCon{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 30px;
+}
+.msgBox button{
+    outline: none;
+    border: none;
+    font-size: 17px;
+    padding: 10px;
+    margin: 3px 0;
+    background: var(--hovercolor);
+    border-radius: 5px;
+}
+.smallMsg{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9999999;
+    width: 60%;
+    max-width: 400px;
+    height: auto;
+    padding: 20px 20px 14px 20px;
+    max-height: 70%;
+    text-align: center;
 }

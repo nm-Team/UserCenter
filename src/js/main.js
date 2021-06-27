@@ -1,8 +1,15 @@
 var apiURL = "";
 
-if (getQueryVariable("name")) {
-    changeLoginTypeA.setAttribute("href", changeLoginTypeA.getAttribute("href") + "?returnto=" + getQueryVariable("returnto") + "&name=" + getQueryVariable("name"));
-    nameBox.innerHTML = "<t data-i18n='toContinue'></t> " + getQueryVariable("name");
+window.onload = function () {
+    if (getQueryVariable("name")) {
+        changeLoginTypeA.setAttribute("href", changeLoginTypeA.getAttribute("href") + "?returnto=" + getQueryVariable("returnto") + "&name=" + getQueryVariable("name"));
+        nameBox.innerHTML = "<t data-i18n='toContinue'></t> " + getQueryVariable("name");
+    }
+    if (getQueryVariable("msg")) {
+        info.innerHTML = "" + getQueryVariable("msg");
+    }
+    changeLanguage();
+    alreadyLogged();
 }
 
 function login() {
@@ -56,7 +63,7 @@ function register() {
     else if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<tdata-i18n='lengthError'></t>"; }
     else if (passwd != passwd2) {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='2timepwnotsame'></t>";
-        pass.value=pass2.value="";
+        pass.value = pass2.value = "";
 
     }
     else if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<t data-i18n='errorOccured'></t><tdata-i18n='lengthError'></t>"; }
@@ -73,7 +80,7 @@ function register() {
                 let status = data['status'];
                 if (status == "successful") {
                     info.innerHTML = "<t data-i18n='registerok'></t>";
-                    window.location.href = changeLoginTypeA.getAttribute("href") ;
+                    window.location.href = changeLoginTypeA.getAttribute("href");
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
                 }
@@ -93,12 +100,43 @@ function time() {
     return timeNow.getTime();
 }
 
+function alreadyLogged() {
+    $.ajax(apiURL + "userinfo.php", {
+        type: "POST",
+        async: false,
+        data: {},
+        crossDomain: true,
+        datatype: "jsonp",
+        xhrFields: { withCredentials: true },
+        success: function (data) {
+            let status = data['status'];
+            if (status == "successful") {
+                console.error("Already logged. ");
+                returnURL = getQueryVariable("returnto");
+                if (!returnURL) returnURL = "/info.html";
+                window.location.href = returnURL;
+            }
+            else if (status == "error") {
+                console.log("Not logged in.");
+            }
+        },
+        error: function () {
+        }
+    });
+    // changeLanguage();
+
+}
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if (pair[0] == variable) { return pair[1]; }
+        if (pair[0] == "null") {
+            return null;
+        }
+        if (pair[0] == variable) {
+            return decodeURI(pair[1]);
+        }
     }
     return null;
 }
