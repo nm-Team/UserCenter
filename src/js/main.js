@@ -3,10 +3,10 @@ var apiURL = "";
 window.onload = function () {
     if (getQueryVariable("name")) {
         changeLoginTypeA.setAttribute("href", changeLoginTypeA.getAttribute("href") + "?returnto=" + getQueryVariable("returnto") + "&name=" + getQueryVariable("name"));
-        nameBox.innerHTML = "<t data-i18n='toContinue'></t> " + getQueryVariable("name");
+        nameBox.innerHTML = "<t data-i18n='toContinue'></t> <t data-i18n='" + getQueryVariable("name") + "'></t> ";
     }
     if (getQueryVariable("msg")) {
-        info.innerHTML = "" + getQueryVariable("msg");
+        info.innerHTML = "<t data-i18n='" + getQueryVariable("msg") + "'></t> ";
     }
     changeLanguage();
     alreadyLogged();
@@ -33,7 +33,7 @@ function login() {
                 if (status == "successful") {
                     info.innerHTML = "<t data-i18n='logok'></t>";
                     returnURL = getQueryVariable("returnto");
-                    if (!returnURL) returnURL = "/info.html";
+                    if (!returnURL || returnURL == "null") returnURL = "/info.html";
                     window.location.href = returnURL;
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];

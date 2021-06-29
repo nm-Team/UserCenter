@@ -1,54 +1,70 @@
 {
-	"aboutBox": {
-		"h1": "關於 nmBrowser 啟動頁"
-	},
-	"cancel": "取消",
+	"2timepwnotsame": "兩次輸入的密碼不一致，請重試。",
+	"captcha": "驗證碼",
+	"checkterms": "請先閱讀並同意上述條款與條件。",
 	"close": "關閉",
-	"confirm": "確認",
-	"daochu": "導出",
-	"daoru": "導入",
-	"developing": "此功能還在開發中，敬請期待。",
-	"imgPicker": {
-		"h1": "自定義照片",
-		"p": "輸入圖片地址："
+	"cr": "©版權所有 2021 nmTeam。保留所有權利。",
+	"email": "電子郵箱",
+	"errorNet": "抱歉，網絡出現問題，請檢查您的網絡連接或稍後再試。詳細信息：",
+	"errorOccured": "發生錯誤：",
+	"fillall": "您的信息未填寫完整，請填寫完整後再試。",
+	"haveAAccount0": "已有賬戶？",
+	"haveAAccount1": "點擊登錄",
+	"haveNoAccount0": "還沒有賬戶？",
+	"haveNoAccount1": "立即註冊",
+	"info": {
+		"changeAvatar": "設置新頭像",
+		"changeInfo": "更改信息",
+		"changePassword": "修改密碼",
+		"close": "關閉",
+		"come_soon": "此功能即將推出，敬請期待。",
+		"h1": "nmTeam Account Center",
+		"logout": "登出",
+		"p": {
+			"again": "再次輸入",
+			"new": "新密碼",
+			"old": "舊密碼"
+		},
+		"safeInfo": "保存",
+		"t": {
+			"character": "角色",
+			"email": "電子郵箱",
+			"name": "用戶名",
+			"nick": "暱稱"
+		},
+		"title": "nmTeam 賬號中心",
+		"user": "用戶名："
 	},
-	"linkEdit": {
-		"h1": "編輯快速鏈接",
-		"tip": "最多可以插入 8 條常用鏈接。"
+	"lengthError": "用戶名或密碼長度不符合要求。",
+	"login": "登錄",
+	"loging": "正在登錄...",
+	"loginh": "登錄 nmTeam Account",
+	"logintitle": "登錄 nmTeam Account",
+	"logok": "登錄成功！",
+	"logoutok": "登出成功！",
+	"msg": {
+		"browser_home_page": "登錄 nmTeam 賬號即可將最愛的網址和其他設置在您的設備間同步。",
+		"website": "在 nmTeam 官方網站登錄您的 nmTeam 賬戶以獲取更多服務。"
 	},
-	"map": "導航",
-	"menu": {
-		"2ciyuan": "二次元",
-		"LTB": "左上角",
-		"RTB": "右上角",
-		"about": "關於",
-		"baidu": "百度",
-		"bgImage": "背景圖片",
-		"bgImageOri": "圖片源",
-		"bing": "必應",
-		"bingImage": "必應",
-		"close": "關",
-		"colorAuto": "跟隨系統",
-		"colorDark": "暗",
-		"colorImg": "識別圖片",
-		"colorLight": "亮",
-		"colorTheme": "主題",
-		"google": "谷歌",
-		"lan": "語言",
-		"mamage": "管理",
-		"news": "新聞與資訊",
-		"open": "開",
-		"quickAccess": "快速鏈接",
-		"searchBox": "搜索框",
-		"searchE": "搜索引擎",
-		"selfImg": "自定義",
-		"shide": "搜索時模糊背景",
-		"siteMap": "導航",
-		"time": "以時間取代標題",
-		"wea": "天氣"
+	"name": "用戶名",
+	"network-service-protocol": "服務協議",
+	"notLoged": "您還未登錄，請先登錄！",
+	"password": "密碼",
+	"passwordAgain": "重複密碼",
+	"privacy-policy": "隱私政策",
+	"readNeeds": "已閱讀並同意",
+	"readNeeds2": " 和",
+	"recoMe": "記住我",
+	"register": "註冊",
+	"registerh": "註冊 nmTeam Account",
+	"registering": "正在註冊...",
+	"registerok": "註冊成功！",
+	"registertitle": "註冊 nmTeam Account",
+	"resigter": "註冊",
+	"target": {
+		"account": "管理賬戶",
+		"browser_home_page": "nmBrowser 主頁",
+		"website": "nmTeam 官網"
 	},
-	"news": "新聞",
-	"not_available_region": "抱歉，此服務在您所在的國家或地區無法使用。",
-	"start": "開始",
-	"title": "主頁"
+	"toContinue": "以繼續"
 }

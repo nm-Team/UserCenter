@@ -1,54 +1,70 @@
 {
-	"aboutBox": {
-		"h1": "nmBrowserスタートページについて"
-	},
-	"cancel": "キャンセル",
+	"2timepwnotsame": "入力した2つのパスワードが一致しません。もう一度やり直してください。",
+	"captcha": "確認コード",
+	"checkterms": "まず、上記の利用規約をお読みになり、同意してください。",
 	"close": "閉じる",
-	"confirm": "確認する",
-	"daochu": "輸出する",
-	"daoru": "インポート",
-	"developing": "この機能はまだ開発中ですので、ご期待ください。",
-	"imgPicker": {
-		"h1": "カスタム写真 ",
-		"p": "写真の住所を入力してください："
+	"cr": "©著作権 2021 nmTeam。全著作権所有。",
+	"email": "Eメール",
+	"errorNet": "申し訳ありませんが、ネットワークに問題があります。ネットワーク接続を確認するか、しばらくしてからもう一度お試しください。詳細：",
+	"errorOccured": "エラーが発生しました：",
+	"fillall": "情報が完全に入力されていません。入力して、もう一度お試しください。",
+	"haveAAccount0": "すでにアカウントをお持ちですか？",
+	"haveAAccount1": "クリックしてログイン",
+	"haveNoAccount0": "まだアカウントをお持ちではありませんか？",
+	"haveNoAccount1": "今すぐサインアップ",
+	"info": {
+		"changeAvatar": "新しいアバターを設定する",
+		"changeInfo": "情報の変更",
+		"changePassword": "パスワードを変更する",
+		"close": "閉じる",
+		"come_soon": "この機能はまもなく登場しますので、ご期待ください。",
+		"h1": "nmTeam Account Center",
+		"logout": "ログアウト",
+		"p": {
+			"again": "もう一度入力してください",
+			"new": "新しいパスワード",
+			"old": "以前のパスワード"
+		},
+		"safeInfo": "保存する",
+		"t": {
+			"character": "役割",
+			"email": "Eメール",
+			"name": "ユーザー名",
+			"nick": "ニックネーム"
+		},
+		"title": "nmTeamアカウントセンター",
+		"user": "ユーザー名："
 	},
-	"linkEdit": {
-		"h1": "クイックリンクを編集する",
-		"tip": "頻繁に使用するリンクを最大8つ挿入できます。"
+	"lengthError": "ユーザー名またはパスワードの長さが要件を満たしていません。",
+	"login": "ログイン",
+	"loging": "ログインしています...",
+	"loginh": "nmTeamアカウントにログインします",
+	"logintitle": "nmTeamアカウントにログインします",
+	"logok": "ログイン成功！",
+	"logoutok": "正常にログアウトします。",
+	"msg": {
+		"browser_home_page": "nmTeamアカウントにログインして、お気に入りのURLやその他の設定をデバイス間で同期します。",
+		"website": "nmTeam公式WebサイトでnmTeamアカウントにログインして、その他のサービスを利用してください。"
 	},
-	"map": "ナビゲーション",
-	"menu": {
-		"2ciyuan": "2番目の要素",
-		"LTB": "左上隅",
-		"RTB": "右上隅",
-		"about": "について",
-		"baidu": "Baidu",
-		"bgImage": "背景画像",
-		"bgImageOri": "ソース",
-		"bing": "Bing",
-		"bingImage": "Bing",
-		"close": "消す",
-		"colorAuto": "システム ",
-		"colorDark": "濃い",
-		"colorImg": "識別する ",
-		"colorLight": "明るい",
-		"colorTheme": "テーマ",
-		"google": "Google",
-		"lan": "言語",
-		"mamage": "管理",
-		"news": "ニュース ",
-		"open": "開いた",
-		"quickAccess": "速いリーチ ",
-		"searchBox": "検索バー",
-		"searchE": "エンジン",
-		"selfImg": "カスタマイズ",
-		"shide": "検索時に背景をぼかす",
-		"siteMap": "ナビゲーション",
-		"time": "タイトルを時間に置き換えます",
-		"wea": "天候"
+	"name": "ユーザー名",
+	"network-service-protocol": "サービス契約",
+	"notLoged": "まだログインしていませんので、まずはログインしてください！",
+	"password": "パスワード",
+	"passwordAgain": "パスワードを繰り返す",
+	"privacy-policy": "プライバシーポリシー",
+	"readNeeds": "読んで同意する",
+	"readNeeds2": " と",
+	"recoMe": "私を覚えてますか",
+	"register": "登録",
+	"registerh": "nmTeamアカウントを登録する",
+	"registering": "登録中...",
+	"registerok": "登録完了！",
+	"registertitle": "nmTeamアカウントを登録する",
+	"resigter": "登録",
+	"target": {
+		"account": "アカウントを管理する",
+		"browser_home_page": "nmBrowser ホームページ",
+		"website": "nmTeam公式ウェブサイト"
 	},
-	"news": "ニュース",
-	"not_available_region": "申し訳ありませんが、このサービスはお住まいの国または地域ではご利用いただけません。",
-	"start": "開始する",
-	"title": "ホームページ"
+	"toContinue": "続ける"
 }
