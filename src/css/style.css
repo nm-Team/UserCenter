@@ -179,6 +179,11 @@ label input{
     color: var(--linkcolor);
     text-decoration: none;
 }
+recap{
+    position: relative;
+    transform: translate(-50%, 0%);
+    left: calc(50% - 152px);
+}
 but label{
     position: relative;
     padding-left: 1.28em;
@@ -374,7 +379,27 @@ h2 button{
     width: 60%;
     max-width: 400px;
     height: auto;
+    color: var(--cardtext);
     padding: 20px 20px 14px 20px;
     max-height: 70%;
     text-align: center;
+}
+#activationSvgs svg{
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+#activationSvgs svg.show{
+    display: block;
+}
+#loadingSvg{
+    animation: run cubic-bezier(0.5, 0.5, 0.5, 0.5) 5s infinite;
+}
+@keyframes run{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }

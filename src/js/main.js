@@ -1,17 +1,5 @@
 var apiURL = "";
 
-window.onload = function () {
-    if (getQueryVariable("name")) {
-        changeLoginTypeA.setAttribute("href", changeLoginTypeA.getAttribute("href") + "?returnto=" + getQueryVariable("returnto") + "&name=" + getQueryVariable("name"));
-        nameBox.innerHTML = "<t data-i18n='toContinue'></t> <t data-i18n='" + getQueryVariable("name") + "'></t> ";
-    }
-    if (getQueryVariable("msg")) {
-        info.innerHTML = "<t data-i18n='" + getQueryVariable("msg") + "'></t> ";
-    }
-    changeLanguage();
-    alreadyLogged();
-}
-
 function login() {
     let user = uname.value;
     let passwd = pass.value;
@@ -95,6 +83,33 @@ function register() {
     grecaptcha.reset();
 }
 
+function logout() {
+    $.ajax(apiURL + "logout.php", {
+        type: "POST",
+        async: false,
+        data: {},
+        crossDomain: true,
+        datatype: "jsonp",
+        xhrFields: { withCredentials: true },
+        success: function (data) {
+            let status = data['status'];
+            if (status == "successful") {
+                console.log("Logout success.");
+                alert("<t data-i18n='logoutok'></t>");
+                window.location.href = "/index.html";
+            }
+            else if (status == "error") {
+                console.log("Logout faliure.");
+                operates("<t data-i18n='errorOccured'></t>" + data['info']);
+            }
+        },
+        error: function () {
+            operates.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
+        }
+    });
+    changeLanguage();
+}
+
 function time() {
     timeNow = new Date;
     return timeNow.getTime();
@@ -123,8 +138,6 @@ function alreadyLogged() {
         error: function () {
         }
     });
-    // changeLanguage();
-
 }
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -139,4 +152,18 @@ function getQueryVariable(variable) {
         }
     }
     return null;
+}
+
+function alert(msg) {
+    alertDate = new Date();
+    alertTime = alertDate.getTime();
+    new_element = document.createElement('div');
+    new_element.setAttribute('id', 'smallMsg' + alertTime);
+    new_element.setAttribute('class', 'msgBox smallMsg');
+    document.body.appendChild(new_element);
+    document.getElementById('smallMsg' + alertTime).innerHTML = `<p>` + msg + `</p>
+    <button data-i18n="close" id="aboutClose" onclick="document.getElementById('smallMsg`+ alertTime + `').setAttribute('open','false'); msgBoxCover.setAttribute('smallMsg','false');"></button>`;
+    changeLanguage();
+    document.getElementById('smallMsg' + alertTime).setAttribute("open", "true");
+    msgBoxCover.setAttribute("smallMsg", "true");
 }

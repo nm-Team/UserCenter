@@ -66,5 +66,12 @@
 		"browser_home_page": "nmBrowser 主页",
 		"website": "nmTeam 官网"
 	},
-	"toContinue": "以继续"
+	"toContinue": "以继续","activationh":"验证电子邮箱","activationtitle":"验证电子邮箱",
+	"activation":{
+		"doing":"正在验证您的邮箱地址......",
+		"error":"抱歉，由于出现错误，未能成功验证您的邮箱地址。详细信息：",
+		"success":"验证成功！",
+		"lackinfo":"验证失败，因为您的信息提供的不充分。请检查是否您输入的是完整的 URL。",
+		"tip":"如果未能验证您的电子邮箱，您可尝试刷新此页面。如果问题未能解决，请与 nmTeam 取得联系以获取帮助。"
+	}
 }

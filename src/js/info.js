@@ -1,4 +1,3 @@
-var apiURL = "";
 var changeableInfos = ["tNick",];
 
 function openO(tabName) {
@@ -8,6 +7,7 @@ function openO(tabName) {
     }
     document.getElementById(tabName).setAttribute("open", "true");
 }
+
 window.onload = function () {
     refreshInfo();
 }
@@ -57,33 +57,6 @@ function refreshInfo() {
     changeLanguage();
 }
 
-function logout() {
-    $.ajax(apiURL + "logout.php", {
-        type: "POST",
-        async: false,
-        data: {},
-        crossDomain: true,
-        datatype: "jsonp",
-        xhrFields: { withCredentials: true },
-        success: function (data) {
-            let status = data['status'];
-            if (status == "successful") {
-                console.log("Logout success.");
-                alert("<t data-i18n='logoutok'></t>");
-                window.location.href = "/index.html";
-            }
-            else if (status == "error") {
-                console.log("Logout faliure.");
-                operates("<t data-i18n='errorOccured'></t>" + data['info']);
-            }
-        },
-        error: function () {
-            operates.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
-        }
-    });
-    changeLanguage();
-}
-
 function changeInfo() {
     for (changeNum = 0; changeNum < changeableInfos.length; changeNum++) {
         document.getElementById(changeableInfos[changeNum]).removeAttribute("readonly");
@@ -117,18 +90,4 @@ function changePassword() {
     }
     changeLanguage();
     openO("main");
-}
-
-function alert(msg) {
-    alertDate = new Date();
-    alertTime = alertDate.getTime();
-    new_element = document.createElement('div');
-    new_element.setAttribute('id', 'smallMsg' + alertTime);
-    new_element.setAttribute('class', 'msgBox smallMsg');
-    document.body.appendChild(new_element);
-    document.getElementById('smallMsg' + alertTime).innerHTML = `<p>` + msg + `</p>
-    <button data-i18n="close" id="aboutClose" onclick="document.getElementById('smallMsg`+ alertTime + `').setAttribute('open','false'); msgBoxCover.setAttribute('smallMsg','false');"></button>`;
-    changeLanguage();
-    document.getElementById('smallMsg' + alertTime).setAttribute("open", "true");
-    msgBoxCover.setAttribute("smallMsg", "true");
 }
