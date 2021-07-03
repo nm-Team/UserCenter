@@ -1,13 +1,42 @@
 {
 	"2timepwnotsame": "The two passwords you entered do not match. Please retry.",
+	"activation": {
+		"doing": "Verifying your email address...",
+		"error": "Sorry, due to an error, your email address could not be successfully verified. Details:",
+		"lackinfo": "Verification failed because your URL does not contain all the information.\nThis may be due to an error in your email application or the URL you copied is incomplete.\nPlease make sure to copy the link provided in the email completely and try again. If this problem recurs, please try to contact nmTeam for help.",
+		"success": "The verification is successful!",
+		"tip": "As the last step of registering an nmTeam account, we need to verify your E-Mail address to make sure it is your own email address.\nIf your E-Mail address cannot be verified, you can try refreshing this page. If this is not resolved, please contact nmTeam for help."
+	},
+	"activationh": "Verify Your E-mail",
+	"activationtitle": "Verify Your E-mail",
 	"captcha": "Verification",
-	"checkterms": "Please read and agree to our terms of use above first.",
+	"changeavatar": {
+		"error": "Sorry, due to an error, the avatar could not be set successfully. Details:",
+		"givealink": "Please provide a valid picture address.",
+		"success": "The profile picture is set successfully.",
+		"tip0": "Update your nmTeam Account profile picture.",
+		"tip1": "Please fill in the URL that uses the https protocol and directly links to the image, such as https://example.com/example.png.",
+		"tip2": "You can upload the picture to Tubed and get the link.",
+		"tip3": "You can also upload the profile picture file directly:",
+		"uploadbutton": "Upload Image"
+	},
+	"changeinfo": {
+		"error": "Sorry, due to an error, the user information could not be modified successfully. details:",
+		"success": "The user information was successfully modified."
+	},
+	"changepw": {
+		"error": "Sorry, due to an error, the password could not be changed successfully. details:",
+		"success": "successfully change password. Please log in to your nmTeam account again."
+	},
+	"checkterms": "Please read and agree to the above terms and conditions before registering.",
 	"close": "Close",
 	"cr": "©Copyright 2021 nmTeam. All rights reserved.",
 	"email": "E-Mail",
 	"errorNet": "We're sorry, but something was wrong with the Internet. Please check your network connection or try again later. Details:",
 	"errorOccured": "An error occurred:",
 	"fillall": "Your information is not complete. Please fill it out and try again.",
+	"forgetPW0": "Forget password?",
+	"forgetPW1": "Reset Password",
 	"haveAAccount0": "Already have an account?",
 	"haveAAccount1": "Click here to login",
 	"haveNoAccount0": "Don't have an account yet?",
@@ -21,7 +50,7 @@
 		"h1": "nmTeam Account Center",
 		"logout": "Sign Out",
 		"p": {
-			"again": "Re-Enter",
+			"again": "Repet",
 			"new": "New Password",
 			"old": "Old Password"
 		},
@@ -48,6 +77,7 @@
 	},
 	"name": "Username",
 	"network-service-protocol": "Network Service Protocol",
+	"networkerror": "Network Error.",
 	"notLoged": "You have not logged in yet, please log in first!",
 	"password": "Password",
 	"passwordAgain": "Repeat Password",
@@ -58,9 +88,29 @@
 	"register": "Register",
 	"registerh": "Register nmTeam Account",
 	"registering": "Registering...",
-	"registerok": "registration success!",
+	"registerok0": "The registration application is submitted successfully!",
+	"registerok1": "Please log in to your email address and click on the link in an email with a link to complete the activation operation that we just sent to your email address to complete the email address verification to confirm that this email address is yours .",
+	"registerok2": "If you do not receive the email, you can try to resend it or look for it in the spam and recycle bins of your mailbox. After the verification is successful, you can click the link at the bottom of the page to return to the login page.",
+	"registerok3": "Request to resend E-Mail",
 	"registertitle": "Register nmTeam Account",
-	"resigter": "Registered",
+	"reset": {
+		"lackinfo": "Verification failed because your URL does not contain all the information.\nThis may be due to an error in your email application or the URL you copied is incomplete.\nPlease make sure to copy the link provided in the email completely and try again. If this problem recurs, please try to contact nmTeam for help.",
+		"nofill": "Please enter the complete information before proceeding.",
+		"senderror": "Sorry, the E-Mail failed to be sent. Error message:",
+		"sendsuccess": "The E-Mail was sent successfully!",
+		"seterror": "Sorry, the password setting request was failed. Error message:",
+		"setnotmatch": "The two passwords entered are inconsistent, please re-enter.",
+		"setsuccess": "Password reset successfully!"
+	},
+	"reseth": "Reset Password",
+	"reseth2": "First, please enter the email address you used for registration.",
+	"resetnh2": "Now you can set a new password.",
+	"resetntip": "Please remember your new password.",
+	"resettip": "To proceed to the next step, we will send an E-Mail to your mailbox.\nOr, if you can't even use your E-Mail address, please contact nmTeam for support.",
+	"resettitle": "Reset The Password of The nmTeam Account",
+	"resigter": "Register",
+	"sendResetEmail": "Send Confirmation E-Mail",
+	"setNewPassword": "Setting",
 	"target": {
 		"account": "Manage Account",
 		"browser_home_page": "nmBrowser Homepage",

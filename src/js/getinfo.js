@@ -3,7 +3,7 @@ var infoApiURL = "";
 function getInfo() {
     $.ajax(infoApiURL + "userinfo.php", {
         type: "POST",
-        async: false,
+        async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",

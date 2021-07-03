@@ -53,7 +53,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<button id="safeInfoB" onclick="safeInfo();" data-i18n="info.safeInfo" hidden></button>
+				<button id="safeInfoB" onclick="saveInfo();" data-i18n="info.safeInfo" hidden></button>
 				<button id="changePasswordB" onclick="openO('Password');" data-i18n="info.changePassword"></button>
 			</div>
 			<div class="infoDiv" id="Password">
@@ -79,7 +79,11 @@
 			</div>
 			<div class="infoDiv" id="changeAvatar">
 				<h2>设置头像</h2>
-				<p>Developing. </p>
+				<t data-i18n="changeavatar.tip0"></t><br />
+				<t data-i18n="changeavatar.tip1"></t><br />
+				<t data-i18n="changeavatar.tip2"></t> <a href="https://img.cncn3.cn?from=nmteam" target="_blank">img.cncn3.cn</a><br />
+				<input id="avatarURL" placeholder="https://">
+				<t data-i18n="changeavatar.tip3"></t> <button onclick="uploadAvatar();" data-i18n="changeavatar.uploadbutton"></button><br />
 				<button onclick="changeAvatar();" data-i18n="info.changeAvatar"></button>
 				<button onclick="openO('main');" data-i18n="info.close"></button>
 			</div>

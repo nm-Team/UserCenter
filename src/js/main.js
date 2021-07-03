@@ -5,13 +5,16 @@ function login() {
     let passwd = pass.value;
     if (!(user && passwd)) {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='fillall'></t>";
+        changeLanguage();
     }
     if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<t data-i18n='errorOccured'></t><tdata-i18n='lengthError'></t>"; }
     else {
+        changeLanguage();
         info.innerHTML = "<t data-i18n='loging'></t>";
+        changeLanguage();
         $.ajax(apiURL + "login.php", {
             type: "POST",
-            async: false,
+            async: true,
             data: { "user": user, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse() },
             crossDomain: true,
             datatype: "jsonp",
@@ -20,16 +23,19 @@ function login() {
                 let status = data['status'];
                 if (status == "successful") {
                     info.innerHTML = "<t data-i18n='logok'></t>";
+                    changeLanguage();
                     returnURL = getQueryVariable("returnto");
                     if (!returnURL || returnURL == "null") returnURL = "/info.html";
                     window.location.href = returnURL;
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
+                    changeLanguage();
                 }
 
             },
             error: function () {
                 info.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
+                changeLanguage();
             }
         });
     }
@@ -44,22 +50,24 @@ function register() {
     let passwd2 = pass2.value;
     if (!(user && emailadd && passwd && passwd2)) {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='fillall'></t>";
+        changeLanguage();
     }
     else if (!readNeeds.checked) {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='checkterms'></t>";
+        changeLanguage();
     }
     else if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<tdata-i18n='lengthError'></t>"; }
     else if (passwd != passwd2) {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='2timepwnotsame'></t>";
+        changeLanguage();
         pass.value = pass2.value = "";
-
     }
     else if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<t data-i18n='errorOccured'></t><tdata-i18n='lengthError'></t>"; }
     else {
         info.innerHTML = "<t data-i18n='registering'></t>";
         $.ajax(apiURL + "register.php", {
             type: "POST",
-            async: false,
+            async: true,
             data: { "user": user, "email": emailadd, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse() },
             crossDomain: true,
             datatype: "jsonp",
@@ -67,15 +75,17 @@ function register() {
             success: function (data) {
                 let status = data['status'];
                 if (status == "successful") {
-                    info.innerHTML = "<t data-i18n='registerok'></t>";
-                    window.location.href = changeLoginTypeA.getAttribute("href");
+                    info.innerHTML = "<t data-i18n='registerok0'></t><br /><t data-i18n='registerok1'></t><br /><t data-i18n='registerok2'></t><br /><a href='javascript:resendEmail();' target='_self' data-i18n='registerok3'></a>";
+                    document.getElementsByTagName("form")[0].style.display = "none";
+                    changeLanguage();
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
+                    changeLanguage();
                 }
-
             },
             error: function () {
-                info.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info']
+                info.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
+                changeLanguage();
             }
         });
     }
@@ -83,10 +93,10 @@ function register() {
     grecaptcha.reset();
 }
 
-function logout() {
+function logout(showMsg = true) {
     $.ajax(apiURL + "logout.php", {
         type: "POST",
-        async: false,
+        async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
@@ -95,16 +105,20 @@ function logout() {
             let status = data['status'];
             if (status == "successful") {
                 console.log("Logout success.");
-                alert("<t data-i18n='logoutok'></t>");
+                if (showMsg)
+                    alert("<t data-i18n='logoutok'></t>");
+                changeLanguage();
                 window.location.href = "/index.html";
             }
             else if (status == "error") {
                 console.log("Logout faliure.");
-                operates("<t data-i18n='errorOccured'></t>" + data['info']);
+                if (showMsg)
+                    alert("<t data-i18n='errorOccured'></t>" + data['info']);
             }
         },
         error: function () {
-            operates.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
+            if (showMsg)
+                alert("<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info']);
         }
     });
     changeLanguage();
@@ -118,7 +132,7 @@ function time() {
 function alreadyLogged() {
     $.ajax(apiURL + "userinfo.php", {
         type: "POST",
-        async: false,
+        async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",

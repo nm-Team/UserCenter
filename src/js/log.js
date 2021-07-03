@@ -9,3 +9,7 @@ window.onload = function () {
     changeLanguage();
     alreadyLogged();
 }
+
+function resendEmail(){
+    alert("<t data-i18n='info.come_soon'></t>");
+}

@@ -15,12 +15,14 @@
 
 <body>
 	<div id="bodybg"></div>
+	<div id="msgBoxCover"></div>
 	<div class="logBox">
+
+		<h1><img src="https://logos.nmteam.agou.im/nmTeam/logo@32.png">
+			<t data-i18n="registerh"></t>
+		</h1>
+		<h2 id="nameBox"></h2>
 		<form action="javascript:register();">
-			<h1><img src="https://logos.nmteam.agou.im/nmTeam/logo@32.png">
-				<t data-i18n="registerh"></t>
-			</h1>
-			<h2 id="nameBox"></h2>
 			<label for="uname">
 				<t data-i18n="name"></t><input id="uname">
 			</label>
@@ -33,7 +35,9 @@
 			<label for="pass2">
 				<t data-i18n="passwordAgain"></t><input id="pass2" type="password">
 			</label>
-			<recap><div class="g-recaptcha" data-sitekey="6LcKtjkaAAAAAByRsaSli3V8uteOBKpX6oHDLpeq"></div></recap>
+			<recap>
+				<div class="g-recaptcha" data-sitekey="6LcKtjkaAAAAAByRsaSli3V8uteOBKpX6oHDLpeq"></div>
+			</recap>
 			<but><label for="readNeeds"><input id="readNeeds" type="checkbox"><i></i>
 					<t data-i18n="readNeeds"></t>
 				</label><a href="https://nmteam.ml/legal/network-service-protocol.html"
@@ -42,12 +46,13 @@
 					data-i18n="privacy-policy" target="_blank"></a>
 			</but>
 			<but><button id="register" data-i18n="register"></button></but>
-			<p id="info"></p>
-			<p>
-				<t data-i18n="haveAAccount0"></t>
-				<a id="changeLoginTypeA" href="index.html" data-i18n="haveAAccount1"></a>
-			</p>
 		</form>
+		<p id="info"></p>
+		<p>
+			<t data-i18n="haveAAccount0"></t>
+			<a id="changeLoginTypeA" href="index.html" data-i18n="haveAAccount1"></a>
+		</p>
+
 	</div>
 	<p id="cr" data-i18n="cr"></p>
 
