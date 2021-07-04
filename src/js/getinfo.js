@@ -1,6 +1,6 @@
 var infoApiURL = "";
 
-function getInfo() {
+function getInfo(fun = function () { }) {
     $.ajax(infoApiURL + "userinfo.php", {
         type: "POST",
         async: true,
@@ -18,6 +18,7 @@ function getInfo() {
                 console.error("GetInfo: Not logged in.");
                 returnWord = -1;
             }
+            fun(returnWord);
         },
         error: function () {
             console.error("GetInfo: Error.");

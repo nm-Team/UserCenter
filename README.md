@@ -16,4 +16,5 @@ nmTeam User Center 提供了无与伦比的登录前端网页。因此您只需�
 要使用 <code>getinfo.js</code>，您需要首先在需要调用之的 JavaScript 前引用 <code>getinfo.js</code>。例如：  
 <code>&lt;script src="https://accounts.nmteam.ml/src/js/getinfo.js" &gt; &lt;/script&gt;</code>  
 通过 <code>getInfo</code> 函数，您可以轻松获取登录状态。<code>getInfo</code> 函数的使用示例如下：  
-<code>userInfo = getInfo();</code>  
+<code>userInfo = getInfo(function(){console.log("Success.");});</code>  
+在 2021 年 7 月 4 日后，<code>getInfo</code> 函数实验性新增了一个字段 <code>fun</code>，其默认值为空函数。您可以在此设置获取到结果后需要执行的 JavaScript。  
