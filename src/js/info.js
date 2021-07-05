@@ -62,8 +62,8 @@ function changeInfo() {
         document.getElementById(changeableInfos[changeNum]).removeAttribute("readonly");
 
     }
-    changePasswordB.removeAttribute("hidden");
-    safeInfoB.setAttribute("hidden", "");
+    changePasswordB.setAttribute("hidden", "");
+    safeInfoB.removeAttribute("hidden");
 }
 
 function changePassword() {
@@ -106,28 +106,33 @@ function saveInfo() {
     // 准备搜集错误信息
     changeInfoError = "";
     // 设置 nick
-    $.ajax(apiURL + "updateinfo.php?action=nick", {
-        type: "POST",
-        async: true,
-        data: { "nick": tNick.value },
-        crossDomain: true,
-        datatype: "jsonp",
-        xhrFields: { withCredentials: true },
-        success: function (data) {
-            let status = data['status'];
-            if (status == "successful") {
-                console.log("Change nick success");
+    if (tNick.value == "") {
+        changeInfoError += "Change nick error: Nick can't be empty.<br />";
+    }
+    else {
+        $.ajax(apiURL + "updateinfo.php?action=nick", {
+            type: "POST",
+            async: true,
+            data: { "nick": tNick.value },
+            crossDomain: true,
+            datatype: "jsonp",
+            xhrFields: { withCredentials: true },
+            success: function (data) {
+                let status = data['status'];
+                if (status == "successful") {
+                    console.log("Change nick success");
+                }
+                else if (status == "error") {
+                    console.error("Change nick error: " + data['info']);
+                    changeInfoError += "Change nick error: " + data['info'] + "<br />";
+                }
+            },
+            error: function () {
+                console.error("Change pw error: Network error.");
+                changeInfoError += "Change nick error: <t data-i18n='networkerror'></t><br />";
             }
-            else if (status == "error") {
-                console.error("Change nick error: " + data['info']);
-                changeInfoError += "Change nick error: " + data['info'];
-            }
-        },
-        error: function () {
-            console.error("Change pw error: Network error.");
-            changeInfoError += "Change nick error: <t data-i18n='networkerror'></t>";
-        }
-    });
+        });
+    }
     if (changeInfoError == "")
         alert("<t data-i18n='changeinfo.success'></t>");
     else
@@ -139,21 +144,23 @@ function saveInfo() {
         allInfoInputs[changeNum].setAttribute("readonly", "");
     }
     refreshInfo();
+    changePasswordB.removeAttribute("hidden");
+    safeInfoB.setAttribute("hidden", "");
 }
 
-function uploadAvatar(){
+function uploadAvatar() {
     alert("<t data-i18n='info.come_soon'></t>");
 }
-    
+
 function changeAvatar() {
-    if ( avatarURL.value.slice(0, 8) != "https://")
+    if (avatarURL.value.slice(0, 8) != "https://")
         alert("<t data-i18n='changeavatar.givealink'></t>");
-    else  {
-        avatarToSet=avatarURL.value;
+    else {
+        avatarToSet = avatarURL.value;
         $.ajax(apiURL + "updateinfo.php?action=avatar", {
             type: "POST",
             async: true,
-            data: { "avatar":avatarToSet },
+            data: { "avatar": avatarToSet },
             crossDomain: true,
             datatype: "jsonp",
             xhrFields: { withCredentials: true },

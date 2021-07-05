@@ -9,6 +9,21 @@
 	},
 	"activationh": "驗證電子郵箱",
 	"activationtitle": "驗證電子郵箱",
+	"cantLog": {
+		"0": "nmTeam 發現，一些使用 Safari 或開啟瀏覽器阻止第三方 Cookie 或類似功能的用戶可能在登錄 nmTeam 賬號時遇到問題，例如：",
+		"1": "·頁面維持於“正在登錄……”狀態",
+		"2": "·登錄成功後跳轉到目標應用時仍然顯示未登錄",
+		"3": "·使用 nmTeam Account Center 管理賬戶時在登錄成功後跳轉至管理頁面，然後迅速跳轉到登錄頁面",
+		"4": "如果出現上述情況，則您需要更新您的瀏覽器設定來解決問題。",
+		"5": "如果您是 Safari 用戶或正在使用 iOS 或 iPadOS：",
+		"6": "1. 轉到“設置”，向下滾動並點擊“Safari”設置項。在 macOS 上，請選取“Safari 瀏覽器”>“偏好設置”，然後點按“隱私”。",
+		"7": "2. 在“Safari 設置”中，確保“PRIVACY & SECURITY”設置中的“Prevent Cross-Site Tracking”和“Block All Cookies”選項均為關閉，否則請關閉它們。",
+		"8": "3. 如果這沒有解決問題，請點擊此鏈接後重新啟動瀏覽器。通常情況下，nmTeam 用戶中心會在您首次訪問時幫助您進行此操作。",
+		"9": "4. 如果訪問鏈接後問題依然存在，請嘗試清除 nmteam.ml 和 api-nmteam.agou.im 的網站數據。請訪問 Apple 支持網站了解如何做到這一點。",
+		"10": "如果您使用其它設備上的瀏覽器並遇到問題：",
+		"11": "請嘗試關閉您的瀏覽器插件，更改您瀏覽器中與 Cookie 有關的設置或參閱 Safari 用戶或使用 iOS 或 iPadOS 的用戶的解決方案。如果您的問題始終無法解決，請嘗試更換瀏覽器或者換一台設備，並向 nmTeam 反饋此問題。",
+		"h": "登錄 nmTeam 賬號時遇到問題的一般解決方法"
+	},
 	"captcha": "驗證碼",
 	"changeavatar": {
 		"error": "抱歉，由於出現錯誤，未能成功設置頭像。詳細信息：",
@@ -41,6 +56,8 @@
 	"haveAAccount1": "點擊登錄",
 	"haveNoAccount0": "還沒有賬戶？",
 	"haveNoAccount1": "立即註冊",
+	"ifCantLogin0": "無法完成登錄或使用 Safari？",
+	"ifCantLogin1": "查看無法登錄疑難解答",
 	"info": {
 		"changeAvatar": "設置新頭像",
 		"changeInfo": "更改信息",
