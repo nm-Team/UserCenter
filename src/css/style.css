@@ -179,6 +179,17 @@ label input{
     float: right;
     padding: 8px 10px;
 }
+#useCurrentToLogBox{
+    max-height: 0;
+    overflow: hidden;
+    display: none;
+    transition: max-height 0.3s, margin-top 0.3s;
+}
+#useCurrentToLogBox.open{
+    max-height: 100vh;
+    display: block;
+    margin-top: 20px;
+}
 .logBox p{
     font-size: 14px;
     font-weight: 400;

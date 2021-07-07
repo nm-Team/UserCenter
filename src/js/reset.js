@@ -6,7 +6,7 @@ function sendResetEmail() {
         $.ajax(apiURL + "resetpassword.php", {
             type: "POST",
             async: true,
-            data: { "email": email.value, "g-recaptcha-response": grecaptcha.getResponse() },
+            data: { "email": email.value, "g-recaptcha-response": grecaptcha.getResponse(), "sessionid": getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
             xhrFields: { withCredentials: true },
@@ -18,7 +18,7 @@ function sendResetEmail() {
                     resultErr.innerHTML = "";
                     logout(false);
                     setTimeout(() => {
-                        // window.location.href = "/index.html";
+                        window.location.href = "/index.html";
                     }, 2000);
                     changeLanguage();
                 }
@@ -54,7 +54,7 @@ function resetPassword() {
     }
     else if (!(passwd == passwd2)) {
         resultBox.setAttribute("data-i18n", "reset.setnotmatch");
-        passwd = passwd2="";
+        passwd = passwd2 = "";
         changeLanguage();
         resultErr.innerHTML = "";
     }
@@ -62,7 +62,7 @@ function resetPassword() {
         $.ajax(apiURL + "verification.php?action=resetPassword", {
             type: "POST",
             async: true,
-            data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time"), "pass": passwd },
+            data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time"), "pass": passwd, "sessionid": getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
             xhrFields: { withCredentials: true },

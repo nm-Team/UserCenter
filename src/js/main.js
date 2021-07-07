@@ -1,5 +1,11 @@
 var apiURL = "";
 
+var newscript = document.createElement('script');
+newscript.setAttribute('type', 'text/javascript');
+newscript.setAttribute('src', '/src/js/getinfo.js');
+var head = document.getElementsByTagName('head')[0];
+head.appendChild(newscript);
+
 function login() {
     let user = uname.value;
     let passwd = pass.value;
@@ -24,14 +30,12 @@ function login() {
                 if (status == "successful") {
                     info.innerHTML = "<t data-i18n='logok'></t>";
                     changeLanguage();
-                    returnURL = getQueryVariable("returnto");
-                    if (!returnURL || returnURL == "null") returnURL = "/info.html";
-                    window.location.href = returnURL;
+                    document.cookie = "PHPSESSID=" + data['sessionid'] + "; domain=" + window.location.hostname + "; path=/";
+                    goWith(data['sessionid']);
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
                     changeLanguage();
                 }
-
             },
             error: function () {
                 info.innerHTML = "<t data-i18n='errorOccured'></t><t data-i18n='errorNet'></t>" + data['info'];
@@ -94,7 +98,7 @@ function register() {
 }
 
 function logout(showMsg = true) {
-    $.ajax(apiURL + "logout.php", {
+    $.ajax(apiURL + "logout.php?CodySESSION=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -130,7 +134,7 @@ function time() {
 }
 
 function alreadyLogged() {
-    $.ajax(apiURL + "userinfo.php", {
+    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -140,10 +144,15 @@ function alreadyLogged() {
         success: function (data) {
             let status = data['status'];
             if (status == "successful") {
-                console.error("Already logged. ");
-                returnURL = getQueryVariable("returnto");
-                if (!returnURL) returnURL = "/info.html";
-                window.location.href = returnURL;
+                console.log("Has a logged sessionid. ");
+                try {
+                    useCurrentToLogBox.className = "open";
+                    useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['info']['nick'] + " (" + data['info']['user'] + ")";
+                    useCurrentToLogButton.onclick = function () { goWith(getCookie("PHPSESSID")); };
+                }
+                catch (err) {
+                    console.log("No continue div.");
+                }
             }
             else if (status == "error") {
                 console.log("Not logged in.");
@@ -153,19 +162,17 @@ function alreadyLogged() {
         }
     });
 }
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
-        if (pair[0] == "null") {
-            return null;
-        }
-        if (pair[0] == variable) {
-            return decodeURI(pair[1]);
-        }
+
+function goWith(sid) {
+    returnURL = getQueryVariable("returnto");
+    let sessionid = sid;
+    if (!returnURL || returnURL == "null") returnURL = "/info.html";
+    if (returnURL.indexOf("?") != -1) returnURL += "&sessionid=" + sessionid;
+    else returnURL += "?sessionid=" + sessionid;
+    if (recoMe.checked == true) {
+        returnURL += "&long_log=true";
     }
-    return null;
+    window.location.href = returnURL;
 }
 
 function alert(msg) {
@@ -180,12 +187,6 @@ function alert(msg) {
     changeLanguage();
     document.getElementById('smallMsg' + alertTime).setAttribute("open", "true");
     msgBoxCover.setAttribute("smallMsg", "true");
-}
-
-// 针对 Safari 特殊优化
-if (((BrowserType().engine == "webkit" && BrowserType().system == "macos") || BrowserType().system == "ios") && localStorage.getItem("safari_jumped") != "true") {
-    localStorage.setItem("safari_jumped", "true");
-    window.location.href = "safari.php";
 }
 
 function BrowserType() {

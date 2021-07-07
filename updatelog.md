@@ -2,6 +2,18 @@
 
 亲爱的用户，您期盼已久的新版本 nmTeam 用户中心来了！新版本 nmTeam 用户中心是新一代的账户系统，为不同搭载 nmServices 设备的智能化、互联与协同提供了统一的接口，为您带来简捷、流畅、连续、安全可靠的 nmServices 体验。  
 
+## 2021.07.07  
+### 修复和改进
+- 在前端对接服务时改用 URL 参数传输，使得在 Safari 上不能登录的问题得以解决，同时可在同一设备使用不同 nmServices 时登录不同账号。新的返回 URL 将包含用户是否选择长期登录参数及本次生成的 SessionID
+- nmServices 对接到 info 页面时从 URL 中获取来自对接 nmServices 的 SessionID 参数并保存入 Accounts 的 Cookie，其优先级高于 Accounts 的 Cookie
+- 在对接后端时在 Cookie 中获取 SessionID 并将其包含在 GET 中
+- 取消了如果有 Cookie 记录则自动跳转的逻辑，而改为如果 Accounts 本地有用户之前登录其它服务或访问 Accounts Center 时产生的 Cookie 记录，则询问用户是否用此账户继续登录
+- 在 getInfo 中，自动从 URL 中 获取来自 Accounts Center 的 SessionID 参数并保存入接入 nmServices（包括 Accounts 的 info 页面）的 Cookie
+
+### 其它
+- 提高系统的稳定性  
+- 优化系统的流畅度  
+
 ## 2021.07.05  
 ### 新功能
 - 增加无法登录疑难解答

@@ -13,7 +13,7 @@ window.onload = function () {
 }
 
 function refreshInfo() {
-    $.ajax(apiURL + "userinfo.php", {
+    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -72,7 +72,7 @@ function changePassword() {
     else if (pNew.value != pNew2.value)
         alert("<t data-i18n='2timepwnotsame'></t>");
     else {
-        $.ajax(apiURL + "updateinfo.php?action=password", {
+        $.ajax(apiURL + "updateinfo.php?action=password&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
             data: { "oldpass": pOld.value, "newpass": pNew.value },
@@ -110,7 +110,7 @@ function saveInfo() {
         changeInfoError += "Change nick error: Nick can't be empty.<br />";
     }
     else {
-        $.ajax(apiURL + "updateinfo.php?action=nick", {
+        $.ajax(apiURL + "updateinfo.php?action=nick&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
             data: { "nick": tNick.value },
@@ -157,10 +157,10 @@ function changeAvatar() {
         alert("<t data-i18n='changeavatar.givealink'></t>");
     else {
         avatarToSet = avatarURL.value;
-        $.ajax(apiURL + "updateinfo.php?action=avatar", {
+        $.ajax(apiURL + "updateinfo.php?action=avatar&?CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
-            data: { "avatar": avatarToSet },
+            data: { "avatar": avatarToSet, },
             crossDomain: true,
             datatype: "jsonp",
             xhrFields: { withCredentials: true },
