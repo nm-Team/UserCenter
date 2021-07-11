@@ -157,7 +157,7 @@ function changeAvatar() {
         alert("<t data-i18n='changeavatar.givealink'></t>");
     else {
         avatarToSet = avatarURL.value;
-        $.ajax(apiURL + "updateinfo.php?action=avatar&?CodySESSION=" + getCookie("PHPSESSID"), {
+        $.ajax(apiURL + "updateinfo.php?action=avatar&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
             data: { "avatar": avatarToSet, },
