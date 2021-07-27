@@ -13,6 +13,10 @@ function login() {
         info.innerHTML = "<t data-i18n='errorOccured'></t>" + "<t data-i18n='fillall'></t>";
         changeLanguage();
     }
+    if (recoMe.checked == true) {
+        reco = true;
+    }
+    else reco = false;
     if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<t data-i18n='errorOccured'></t><tdata-i18n='lengthError'></t>"; }
     else {
         changeLanguage();
@@ -21,7 +25,7 @@ function login() {
         $.ajax(apiURL + "login.php", {
             type: "POST",
             async: true,
-            data: { "user": user, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse() },
+            data: { "user": user, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse(), "remember": reco },
             crossDomain: true,
             datatype: "jsonp",
             xhrFields: { withCredentials: true },
