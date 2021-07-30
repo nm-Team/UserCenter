@@ -26,6 +26,7 @@ function refreshInfo() {
                 console.log("Success.");
                 nick.innerHTML = data['info']['nick'];
                 nameT.innerHTML = data['info']['user'];
+                tUID.value = data['info']['uid'];
                 tNick.value = data['info']['nick'];
                 tEmail.value = data['info']['email'];
                 tName.value = data['info']['user'];
