@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<title data-i18n="info.title"></title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<meta name='apple-mobile-web-app-status-bar-style' content='black'>
+	<meta name='format-detection' content='telephone=no'>
+	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+	<script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+	<div id="bodybg"></div>
+	<div id="msgBoxCover"></div>
+	<div class="logBox full">
+
+		<h1><img src="https://logos.nmteam.agou.im/nmTeam/logo@32.png">
+			<t data-i18n="info.h1"></t>
+		</h1>
+		<div id="userHead">
+			<i id="avatar" onclick="openO('changeAvatar');"></i>
+			<p id="nick"></p>
+			<p>
+				<t data-i18n="info.user"></t>
+				<t id="nameT"></t>
+			</p>
+			<button onclick="logout();" data-i18n="info.logout"></button>
+		</div>
+		<div id="operates">
+			<div class="infoDiv" id="main" open="true">
+				<h2>用户信息<button onclick="changeInfo();" data-i18n="info.changeInfo"></button></h2>
+				<table id="userInfo" border="0">
+					<tbody>
+						<tr>
+							<td class="left" data-i18n="info.t.uid">UID</td>
+							<td class="right"><input id="tUID" readonly></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.t.nick"></td>
+							<td class="right"><input id="tNick" readonly></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.t.name"></td>
+							<td class="right"><input id="tName" readonly></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.t.email"></td>
+							<td class="right"><input id="tEmail" readonly></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.t.character"></td>
+							<td class="right"><input id="tCharacter" readonly></td>
+						</tr>
+					</tbody>
+				</table>
+				<button id="safeInfoB" onclick="saveInfo();" data-i18n="info.safeInfo" hidden></button>
+				<button id="changePasswordB" onclick="openO('Password');" data-i18n="info.changePassword"></button>
+			</div>
+			<div class="infoDiv" id="Password">
+				<h2>修改密码</h2>
+				<table id="userInfo" border="0">
+					<tbody>
+						<tr>
+							<td class="left" data-i18n="info.p.old"></td>
+							<td class="right"><input id="pOld" type="password"></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.p.new"></td>
+							<td class="right"><input id="pNew" type="password"></td>
+						</tr>
+						<tr>
+							<td class="left" data-i18n="info.p.again"></td>
+							<td class="right"><input id="pNew2" type="password"></td>
+						</tr>
+					</tbody>
+				</table>
+				<button onclick="changePassword();" data-i18n="info.changePassword"></button>
+				<button onclick="openO('main');" data-i18n="info.close"></button>
+			</div>
+			<div class="infoDiv" id="changeAvatar">
+				<h2>设置头像</h2>
+				<t data-i18n="changeavatar.tip0"></t><br />
+				<t data-i18n="changeavatar.tip1"></t><br />
+				<t data-i18n="changeavatar.tip2"></t> <a href="https://img.cncn3.cn?from=nmteam" target="_blank">img.cncn3.cn</a><br />
+				<input id="avatarURL" placeholder="https://">
+				<t data-i18n="changeavatar.tip3"></t> <button onclick="uploadAvatar();" data-i18n="changeavatar.uploadbutton"></button><br />
+				<button onclick="changeAvatar();" data-i18n="info.changeAvatar"></button>
+				<button onclick="openO('main');" data-i18n="info.close"></button>
+			</div>
+		</div>
+	</div>
+	<p id="cr" data-i18n="cr"></p>
+
+	<script src="src/js/jquery.min.js"></script>
+	<script src="src/js/i18next-1.6.3.min.js"></script>
+	<script src="src/js/main.js"></script>
+	<script src="src/js/info.js"></script>
+	<script src="src/js/language.js"></script>
+
+
+</body>
+
+</html>
