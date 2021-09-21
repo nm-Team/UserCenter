@@ -290,7 +290,7 @@ h2 button{
 }
 #avatarURL{
     display: block;
-    width: 100%;
+    width: calc(100% - 16px);
     margin: 8px 0 3px 0;
 }
 table{

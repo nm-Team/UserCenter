@@ -32,7 +32,7 @@ function refreshInfo() {
                 tName.value = data['info']['user'];
                 avatar.style.backgroundImage = "url(" + data['info']['avatar'] + ")";
                 // 解析用户角色
-                switch (data['info']['admin']) {
+                switch (data['info']['role']) {
                     case "0":
                         userCharacter = "User";
                         break;
