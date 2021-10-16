@@ -74,6 +74,7 @@ input,button{
     padding: 8px;
     margin: 0;
     background: var(--hovercolor);
+    color: var(--input);
     border-radius: 5px;
     -webkit-user-select: auto;
     -moz-user-select: auto;
