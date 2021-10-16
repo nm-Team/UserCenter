@@ -1,4 +1,4 @@
-var apiURL = "";
+var apiURL = "https://logapi.nmteam.ml/";
 
 var newscript = document.createElement('script');
 newscript.setAttribute('type', 'text/javascript');
