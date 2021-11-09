@@ -149,7 +149,7 @@ input[readonly]{
 .logBox h2{
     font-size: 18px;
     font-weight: bold;
-    padding: 2px 0 10px 0;
+    padding: 6px 0 10px 0;
 }
 .logBox h1 img{
     width: 27px;
@@ -241,6 +241,7 @@ but label input[type="checkbox"]:checked+i{
     max-height: 100%;
     padding-top: 5px;
     overflow-y: auto;
+    overflow: visible;
 }
 #userHead{
     position: relative;
@@ -291,7 +292,7 @@ h2 button{
 }
 .full table td.right input{
     display: block;
-    width: calc(100% - 15px);
+    width: calc(100% - 20px);
 }
 #avatarURL{
     display: block;

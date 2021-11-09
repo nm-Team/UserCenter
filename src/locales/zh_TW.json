@@ -28,6 +28,7 @@
 	"changeavatar": {
 		"error": "抱歉，由於出現錯誤，未能成功設置頭像。詳細信息：",
 		"givealink": "請提供有效的圖片地址。",
+		"name": "設置頭像",
 		"success": "設置頭像成功。",
 		"tip0": "更新您的 nmTeam Account 頭像。",
 		"tip1": "請填寫使用 https 協議並直接鏈接到圖像的 URL，例如 https://example.com/example.png。",
@@ -66,9 +67,11 @@
 		"close": "關閉",
 		"come_soon": "此功能即將推出，敬請期待。",
 		"h1": "nmTeam Account Center",
+		"infoName": "用戶信息",
 		"logout": "登出",
 		"p": {
 			"again": "再次輸入",
+			"name": "修改密碼",
 			"new": "新密碼",
 			"old": "舊密碼"
 		},

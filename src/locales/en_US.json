@@ -28,6 +28,7 @@
 	"changeavatar": {
 		"error": "Sorry, due to an error, the avatar could not be set successfully. Details:",
 		"givealink": "Please provide a valid picture address.",
+		"name": "Set Avatar",
 		"success": "The profile picture is set successfully.",
 		"tip0": "Update your nmTeam Account profile picture.",
 		"tip1": "Please fill in the URL that uses the https protocol and directly links to the image, such as https://example.com/example.png.",
@@ -66,9 +67,11 @@
 		"close": "Close",
 		"come_soon": "This feature is coming soon, so stay tuned.",
 		"h1": "nmTeam Account Center",
+		"infoName": "User Info",
 		"logout": "Sign Out",
 		"p": {
-			"again": "Repet",
+			"again": "Repeat",
+			"name": "Change Password",
 			"new": "New Password",
 			"old": "Old Password"
 		},
