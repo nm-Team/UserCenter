@@ -48,6 +48,10 @@ body.dark{
     --searchword: #ffffff;
     --input: #ffffff;
 }
+:focus-visible{
+    outline: 4px solid rgba(0,125,250,0.6);
+    outline-offset: 1px;
+}
 #msgBoxCover{
     position: fixed;
 	z-index: 88888;
