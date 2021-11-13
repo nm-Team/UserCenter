@@ -237,6 +237,9 @@ but label input[type="checkbox"]:checked+i{
     overflow: hidden;
     line-height: 1.6;
 }
+.infoDiv:not([open=true]){
+    display: none;
+}
 .infoDiv[open=true]{
     max-height: 100%;
     padding-top: 5px;
