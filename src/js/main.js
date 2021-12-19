@@ -1,6 +1,6 @@
-var apiURL = "";
-var messageApiURL = "";
-var nid = "";
+var apiURL = "https://logapi.nmteam.ml/";
+var messageApiURL = "https://announcementapi.nmteam.xyz/";
+var nid = "1";
 
 var newscript = document.createElement('script');
 newscript.setAttribute('type', 'text/javascript');

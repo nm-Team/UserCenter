@@ -1,4 +1,4 @@
-var infoApiURL = "";
+var infoApiURL = "https://logapi.nmteam.ml/";
 var manageURL = "https://accounts.nmteam.ml";
 var nid = "";
 
