@@ -1,21 +1,22 @@
 var infoApiURL = "";
 var manageURL = "https://accounts.nmteam.ml";
+var nid = "";
 
 getSessionId();
 
 function getInfo(fun = function () { }) {
-    $.ajax(infoApiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(infoApiURL + "userinfo.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
-        xhrFields: { withCredentials: true },
+        xhrFields: { withCredentials: false },
         success: function (data) {
             let status = data['status'];
-            if (status == "successful") {
+            if (status == "success") {
                 console.log("GetInfo: Success.");
-                returnWord = data['info'];
+                returnWord = data['data'];
             }
             else if (status == "error") {
                 console.error("GetInfo: Not logged in.");

@@ -1,10 +1,31 @@
 var apiURL = "";
+var messageApiURL = "";
+var nid = "";
 
 var newscript = document.createElement('script');
 newscript.setAttribute('type', 'text/javascript');
 newscript.setAttribute('src', '/src/js/getinfo.js');
 var head = document.getElementsByTagName('head')[0];
 head.appendChild(newscript);
+
+$(window).on("load", function () {
+    $.ajax(messageApiURL + "accounts.json", {
+        type: "GET",
+        async: true,
+        data: {},
+        crossDomain: true,
+        datatype: "jsonp",
+        xhrFields: { withCredentials: false },
+        success: function (data) {
+            if (data['announce_' + language]) {
+                alert(data['announce_' + language]);
+            }
+        },
+        error: function () {
+            console.log("Get announcement error");
+        }
+    });
+})
 
 function login() {
     let user = uname.value;
@@ -22,20 +43,20 @@ function login() {
         changeLanguage();
         info.innerHTML = "<t data-i18n='loging'></t>";
         changeLanguage();
-        $.ajax(apiURL + "login.php", {
+        $.ajax(apiURL + "login.php?nid=" + nId, {
             type: "POST",
             async: true,
             data: { "user": user, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse(), "remember": reco },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: true },
+            xhrFields: { withCredentials: false },
             success: function (data) {
                 let status = data['status'];
-                if (status == "successful") {
+                if (status == "success") {
                     info.innerHTML = "<t data-i18n='logok'></t>";
                     changeLanguage();
-                    document.cookie = "PHPSESSID=" + data['sessionid'] + "; domain=" + window.location.hostname + "; path=/";
-                    goWith(data['sessionid']);
+                    document.cookie = "PHPSESSID=" + data['CodySession'] + "; domain=" + window.location.hostname + "; path=/";
+                    goWith(data['CodySession']);
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
                     changeLanguage();
@@ -73,16 +94,16 @@ function register() {
     else if ((user.length < 4 && user.length > 16) || passwd.length < 4) { info.innerHTML = "<t data-i18n='errorOccured'></t><tdata-i18n='lengthError'></t>"; }
     else {
         info.innerHTML = "<t data-i18n='registering'></t>";
-        $.ajax(apiURL + "register.php", {
+        $.ajax(apiURL + "register.php?nid=" + nId, {
             type: "POST",
             async: true,
             data: { "user": user, "email": emailadd, "pass": passwd, "g-recaptcha-response": grecaptcha.getResponse() },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: true },
+            xhrFields: { withCredentials: false },
             success: function (data) {
                 let status = data['status'];
-                if (status == "successful") {
+                if (status == "success") {
                     info.innerHTML = "<t data-i18n='registerok0'></t><br /><t data-i18n='registerok1'></t><br /><t data-i18n='registerok2'></t><br /><a href='javascript:resendEmail();' target='_self' data-i18n='registerok3'></a>";
                     document.getElementsByTagName("form")[0].style.display = "none";
                     changeLanguage();
@@ -102,16 +123,16 @@ function register() {
 }
 
 function logout(showMsg = true) {
-    $.ajax(apiURL + "logout.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(apiURL + "logout.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
-        xhrFields: { withCredentials: true },
+        xhrFields: { withCredentials: false },
         success: function (data) {
             let status = data['status'];
-            if (status == "successful") {
+            if (status == "success") {
                 console.log("Logout success.");
                 if (showMsg)
                     alert("<t data-i18n='logoutok'></t>");
@@ -138,16 +159,16 @@ function time() {
 }
 
 function alreadyLogged() {
-    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(apiURL + "userinfo.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
-        xhrFields: { withCredentials: true },
+        xhrFields: { withCredentials: false },
         success: function (data) {
             let status = data['status'];
-            if (status == "successful") {
+            if (status == "success") {
                 console.log("Has a logged sessionid. ");
                 try {
                     useCurrentToLogBox.className = "open";

@@ -9,10 +9,10 @@ function sendResetEmail() {
             data: { "email": email.value, "g-recaptcha-response": grecaptcha.getResponse(), "sessionid": getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: true },
+            xhrFields: { withCredentials: false },
             success: function (data) {
                 let status = data['status'];
-                if (status == "successful") {
+                if (status == "success") {
                     console.log("success");
                     resultBox.setAttribute("data-i18n", "reset.sendsuccess");
                     resultErr.innerHTML = "";
@@ -65,10 +65,10 @@ function resetPassword() {
             data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time"), "pass": passwd, "sessionid": getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: true },
+            xhrFields: { withCredentials: false },
             success: function (data) {
                 let status = data['status'];
-                if (status == "successful") {
+                if (status == "success") {
                     console.log("success");
                     resultBox.setAttribute("data-i18n", "reset.setsuccess");
                     resultErr.innerHTML = "";
