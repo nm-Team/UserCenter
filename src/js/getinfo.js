@@ -1,6 +1,6 @@
-var infoApiURL = "https://logapi.nmteam.ml/";
-var manageURL = "https://accounts.nmteam.xyz";
-var nid = "1";
+var infoApiURL = "";
+var manageURL = "https://accounts.nmteam.ml";
+var nid = "";
 
 getSessionId();
 
