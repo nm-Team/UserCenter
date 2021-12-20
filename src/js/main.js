@@ -172,7 +172,7 @@ function alreadyLogged() {
                 console.log("Has a logged sessionid. ");
                 try {
                     useCurrentToLogBox.className = "open";
-                    useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['info']['nick'] + " (" + data['info']['user'] + ")";
+                    useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['data']['nick'] + " (" + data['data']['user'] + ")";
                     useCurrentToLogButton.onclick = function () { goWith(getCookie("PHPSESSID")); };
                 }
                 catch (err) {
