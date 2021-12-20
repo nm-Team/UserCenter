@@ -1,6 +1,6 @@
-var infoApiURL = "";
-var manageURL = "";
-var nId = "";
+var infoApiURL = "https://admin.nmteam.xyz/api/namespace/user/";
+var manageURL = "https://accounts.nmteam.xyz";
+var nId = "1";
 
 getSessionId();
 

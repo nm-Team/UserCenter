@@ -1,6 +1,6 @@
-var apiURL = "";
-var messageApiURL = "";
-var nId = "";
+var apiURL = "https://admin.nmteam.xyz/api/namespace/user/";
+var messageApiURL = "https://announcementapi.nmteam.xyz/";
+var nId = "1";
 
 var newscript = document.createElement('script');
 newscript.setAttribute('type', 'text/javascript');
