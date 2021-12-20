@@ -1,6 +1,6 @@
 var apiURL = "";
 var messageApiURL = "";
-var nid = "";
+var nId = "";
 
 var newscript = document.createElement('script');
 newscript.setAttribute('type', 'text/javascript');
@@ -172,7 +172,7 @@ function alreadyLogged() {
                 console.log("Has a logged sessionid. ");
                 try {
                     useCurrentToLogBox.className = "open";
-                    useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['data']['nick'] + " (" + data['data']['user'] + ")";
+                    useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['info']['nick'] + " (" + data['info']['user'] + ")";
                     useCurrentToLogButton.onclick = function () { goWith(getCookie("PHPSESSID")); };
                 }
                 catch (err) {
@@ -208,9 +208,10 @@ function alert(msg) {
     new_element.setAttribute('class', 'msgBox smallMsg');
     document.body.appendChild(new_element);
     document.getElementById('smallMsg' + alertTime).innerHTML = `<p>` + msg + `</p>
-    <button data-i18n="close" id="aboutClose" onclick="document.getElementById('smallMsg`+ alertTime + `').setAttribute('open','false'); msgBoxCover.setAttribute('smallMsg','false');"></button>`;
+    <button data-i18n="close" autofocus id="alertButton` + alertTime + `" onclick="document.getElementById('smallMsg` + alertTime + `').setAttribute('open','false'); msgBoxCover.setAttribute('smallMsg','false');"></button>`;
     changeLanguage();
     document.getElementById('smallMsg' + alertTime).setAttribute("open", "true");
+    document.getElementById('alertButton' + alertTime).focus();
     msgBoxCover.setAttribute("smallMsg", "true");
 }
 
