@@ -13,10 +13,9 @@ function activation() {
             data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time") },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: false },
             success: function (data) {
                 let status = data['status'];
-                if (status == "success") {
+                if (status == "successful") {
                     console.log("success");
                     resultBox.setAttribute("data-i18n", "activation.success");
                     resultErr.innerHTML = "";
