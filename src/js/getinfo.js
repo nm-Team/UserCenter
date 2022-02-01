@@ -1,22 +1,20 @@
-var infoApiURL = "https://admin.nmteam.xyz/api/namespace/user/";
+var infoApiURL = "https://logapi.nmteam.xyz/";
 var manageURL = "https://accounts.nmteam.xyz";
-var nId = "1";
 
 getSessionId();
 
 function getInfo(fun = function () { }) {
-    $.ajax(infoApiURL + "userinfo.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
+    $.ajax(infoApiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
-        xhrFields: { withCredentials: false },
         success: function (data) {
             let status = data['status'];
-            if (status == "success") {
+            if (status == "successful") {
                 console.log("GetInfo: Success.");
-                returnWord = data['data'];
+                returnWord = data['info'];
             }
             else if (status == "error") {
                 console.error("GetInfo: Not logged in.");

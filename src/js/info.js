@@ -13,27 +13,25 @@ window.onload = function () {
 }
 
 function refreshInfo() {
-    $.ajax(apiURL + "userinfo.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
+    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
         crossDomain: true,
         datatype: "jsonp",
-        xhrFields: { withCredentials: false },
         success: function (data) {
             let status = data['status'];
-            if (status == "success") {
+            if (status == "successful") {
                 console.log("Success.");
-                nick.innerHTML = data['data']['nick'];
-                nameT.innerHTML = data['data']['user'];
-                tUID.value = data['data']['uid'];
-                tNick.value = data['data']['nick'];
-                tEmail.value = data['data']['email'];
-                tName.value = data['data']['user'];
-                uAvatar = data['data']['avatar'];
-                avatar.style.backgroundImage = "url(" + data['data']['avatar'] + ")";
+                nick.innerHTML = data['info']['nick'];
+                nameT.innerHTML = data['info']['user'];
+                tUID.value = data['info']['uid'];
+                tNick.value = data['info']['nick'];
+                tEmail.value = data['info']['email'];
+                tName.value = data['info']['user'];
+                avatar.style.backgroundImage = "url(" + data['info']['avatar'] + ")";
                 // 解析用户角色
-                switch (data['data']['role']) {
+                switch (data['info']['role']) {
                     case "0":
                         userCharacter = "User";
                         break;
@@ -74,16 +72,15 @@ function changePassword() {
     else if (pNew.value != pNew2.value)
         alert("<t data-i18n='2timepwnotsame'></t>");
     else {
-        $.ajax(apiURL + "changepassword.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
+        $.ajax(apiURL + "updateinfo.php?action=password&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
             data: { "oldpass": pOld.value, "newpass": pNew.value },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: false },
-            success: function (data) {
+                success: function (data) {
                 let status = data['status'];
-                if (status == "success") {
+                if (status == "successful") {
                     console.log("Change pw success");
                     alert("<t data-i18n='changepw.success'></t>");
                     logout(false);
@@ -112,16 +109,15 @@ function saveInfo() {
         changeInfoError += "Change nick error: Nick can't be empty.<br />";
     }
     else {
-        $.ajax(apiURL + "editprofile.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
+        $.ajax(apiURL + "updateinfo.php?action=nick&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
-            data: { "nick": tNick.value, avatar: uAvatar },
+            data: { "nick": tNick.value },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: false },
-            success: function (data) {
+                success: function (data) {
                 let status = data['status'];
-                if (status == "success") {
+                if (status == "successful") {
                     console.log("Change nick success");
                 }
                 else if (status == "error") {
@@ -159,16 +155,15 @@ function changeAvatar() {
         alert("<t data-i18n='changeavatar.givealink'></t>");
     else {
         avatarToSet = avatarURL.value;
-        $.ajax(apiURL + "editprofile.php?nid=" + nId + "&CodySession=" + getCookie("PHPSESSID"), {
+        $.ajax(apiURL + "updateinfo.php?action=avatar&CodySESSION=" + getCookie("PHPSESSID"), {
             type: "POST",
             async: true,
-            data: { "avatar": avatarToSet, "nick": tNick.value },
+            data: { "avatar": avatarToSet, },
             crossDomain: true,
             datatype: "jsonp",
-            xhrFields: { withCredentials: false },
-            success: function (data) {
+                success: function (data) {
                 let status = data['status'];
-                if (status == "success") {
+                if (status == "successful") {
                     console.log("Change av success");
                     alert("<t data-i18n='changeavatar.success'></t>");
                 }
