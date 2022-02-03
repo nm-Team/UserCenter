@@ -7,7 +7,7 @@ nmTeam 用户中心前端。
 ## 关于登录网页调用 
 nmTeam User Center 提供了无与伦比的登录前端网页。因此您只需要专心于您的内容创作，无需纠结于登录的实现。  
 您可以通过跳转的方式引导用户登录，只需设置目标网址即可。例如：  
-<code>https://accounts.nmteam.ml/?returnto=https://example.com&name=Example&nbsp;Title&msg=This&nbsp;is&nbsp;a&nbsp;sample</code>
+<code>https://accounts.nmteam.xyz/?returnto=https://example.com&name=Example%20Title&msg=This%20is%20sample</code>
 其中 <code>returnto</code> 在您的环境下是一个必填项，它将为一个包含协议头的 Web 地址以告知登录页面在操作成功后定向到何处；否则，登录成功后将进入用户中心。    
 <code>name</code> 和 <code>msg</code> 均为可选项。如果您传入了对应的参数，它们会分别出现在页面的二级标题和末尾。在传入这些参数时，除了一般字符，您还可以匹配 nmTeam Accounts 语言文件中定义的语言变量。  
 自 2021 年 7 月 7 日更新起，您需要在您服务域名的 Cookie 中加入返回 URL 中的 <code>sessionid</code> 参数。<code>getinfo.js</code> 可自动完成这一操作。  
