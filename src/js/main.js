@@ -1,4 +1,4 @@
-var apiURL = "https://logapi.nmteam.xyz/";
+var apiURL = "https://api.nmteam.xyz/";
 var messageApiURL = "https://announcementapi.nmteam.xyz/";
 var nId = "1";
 

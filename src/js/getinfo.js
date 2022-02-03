@@ -1,4 +1,4 @@
-var infoApiURL = "https://logapi.nmteam.xyz/";
+var infoApiURL = "https://api.nmteam.xyz/";
 var manageURL = "https://accounts.nmteam.xyz";
 
 getSessionId();
