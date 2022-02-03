@@ -19,7 +19,7 @@
 		"6": "1. Go to \"Settings\", scroll down and click on the \"Safari\" setting item. Or on macOS, choose \"Safari\"> \"Preferences\" and click \"Privacy.\"",
 		"7": "2. In \"Safari Settings\", make sure that the \"Prevent Cross-Site Tracking\" and \"Block All Cookies\" options in the \"PRIVACY & SECURITY\" settings are turned off, otherwise please turn them off.",
 		"8": "3. If this does not solve the problem, please click this link and restart your browser. Normally, the nmTeam User Center will help you do this the first time you visit.",
-		"9": "4. If the problem persists after accessing the link, please try to clear the website data of nmteam.ml and api-nmteam.agou.im. Please visit the Apple Support website to learn how to do this.",
+		"9": "4. If the problem persists after accessing the link, please try to clear the website data of nmteam.xyz and api-nmteam.agou.im. Please visit the Apple Support website to learn how to do this.",
 		"10": "If you use a browser on another device and encounter problems:",
 		"11": "Please try to turn off your browser plug-in, change the cookie-related settings in your browser, or refer to the solutions for Safari users or users using iOS or iPadOS. If your problem still cannot be solved, please try to change your browser or another device, and report this problem to nmTeam.",
 		"h": "General Solutions to Problems Encountered When Logging In to an nmTeam Account"
