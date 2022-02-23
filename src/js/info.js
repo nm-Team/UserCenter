@@ -29,7 +29,7 @@ function refreshInfo() {
                 tNick.value = data['info']['nick'];
                 tEmail.value = data['info']['email'];
                 tName.value = data['info']['user'];
-                avatar.style.backgroundImage = "url(" + data['info']['avatar'] + ")";
+                avatar.style.backgroundImage = "url(" + data['info']['avatar'] + "&time=" + time() + ")";
                 // 解析用户角色
                 switch (data['info']['admin']) {
                     case "0":

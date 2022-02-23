@@ -327,6 +327,9 @@ table{
 .cropper-container{
     margin: 10px 0;
 }
+.cropper-view-box{
+    outline: 3px dashed #fff!important;
+}
 @media (max-width: 650px) {
     .logBox:not(full){
         position: fixed;
