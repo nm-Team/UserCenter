@@ -26,14 +26,26 @@
 	},
 	"captcha": "验证码",
 	"changeavatar": {
+		"accessibility_crop": "无障碍模式",
+		"cancel": "取消",
+		"confirm_crop": "裁剪",
+		"crop": "裁剪图片",
 		"error": "抱歉，由于出现错误，未能成功设置头像。详细信息：",
-		"givealink": "请提供有效的图片地址。",
+		"move": {
+			"down": "下移",
+			"left": "左移",
+			"right": "右移",
+			"rp": "放大",
+			"rs": "缩小",
+			"up": "上移"
+		},
 		"name": "设置头像",
-		"success": "设置头像成功。",
-		"tip0": "更新您的 nmTeam Account 头像。",
-		"tip1": "请填写使用 https 协议并直接链接到图像的 URL，例如 https://example.com/example.png。",
-		"tip2": "您可以将图片上传到图床并获取链接。",
-		"tip3": "您也可以直接上传头像图片文件：",
+		"skip_crop": "跳过",
+		"success": "设置头像成功。稍后您应该可以查看您的新头像。",
+		"tip0_0": "请从设备中选择一张照片。",
+		"tip0_1": "上传一张图片后，您将可以进行下一步。",
+		"tip1_0": "请裁剪这张照片。",
+		"tip3": "将照片调整到合适的大小后，请确认设置头像。",
 		"uploadbutton": "上传图片"
 	},
 	"changeinfo": {

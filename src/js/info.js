@@ -31,7 +31,7 @@ function refreshInfo() {
                 tName.value = data['info']['user'];
                 avatar.style.backgroundImage = "url(" + data['info']['avatar'] + ")";
                 // 解析用户角色
-                switch (data['info']['role']) {
+                switch (data['info']['admin']) {
                     case "0":
                         userCharacter = "User";
                         break;
@@ -78,7 +78,7 @@ function changePassword() {
             data: { "oldpass": pOld.value, "newpass": pNew.value },
             crossDomain: true,
             datatype: "jsonp",
-                success: function (data) {
+            success: function (data) {
                 let status = data['status'];
                 if (status == "successful") {
                     console.log("Change pw success");
@@ -115,7 +115,7 @@ function saveInfo() {
             data: { "nick": tNick.value },
             crossDomain: true,
             datatype: "jsonp",
-                success: function (data) {
+            success: function (data) {
                 let status = data['status'];
                 if (status == "successful") {
                     console.log("Change nick success");
@@ -146,40 +146,90 @@ function saveInfo() {
     safeInfoB.setAttribute("hidden", "");
 }
 
-function uploadAvatar() {
-    alert("<t data-i18n='info.come_soon'></t>");
-}
+var image = document.querySelector('#cropperImg');
+var cropper = new Cropper(image, {
+    viewMode: 1,
+    dragMode: 'move',
+    aspectRatio: 1,
+    autoCropArea: 1,
+    restore: false,
+    modal: false,
+    guides: false,
+    highlight: false,
+    cropBoxMovable: false,
+    cropBoxResizable: false,
+    toggleDragModeOnDblclick: false,
+});
+
+$("#avatar_imageInput").on("change", function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function (evt) {
+        var replaceSrc = evt.target.result;
+        cropper.replace(replaceSrc, false);
+    }
+    reader.readAsDataURL(file);
+    openO('changeAvatar_1');
+});
 
 function changeAvatar() {
-    if (avatarURL.value.slice(0, 8) != "https://")
-        alert("<t data-i18n='changeavatar.givealink'></t>");
-    else {
-        avatarToSet = avatarURL.value;
-        $.ajax(apiURL + "updateinfo.php?action=avatar&CodySESSION=" + getCookie("PHPSESSID"), {
-            type: "POST",
-            async: true,
-            data: { "avatar": avatarToSet, },
-            crossDomain: true,
-            datatype: "jsonp",
-                success: function (data) {
-                let status = data['status'];
-                if (status == "successful") {
-                    console.log("Change av success");
-                    alert("<t data-i18n='changeavatar.success'></t>");
-                }
-                else if (status == "error") {
-                    console.error("Change av error: " + data['info']);
-                    alert("<t data-i18n='changeavatar.error'></t>" + data['info']);
-                }
-            },
-            error: function () {
-                console.error("Change av error: Network error.");
-                alert("<t data-i18n='changeavatar.error'></t><t data-i18n='networkerror'></t>");
+    var avatarToSet = cropper.getCroppedCanvas({ width: 200, height: 200 }).toDataURL('image/png', 0.7);
+    var blob = dataURLtoBlob(avatarToSet);
+    var file = blobToFile(blob, "avatar.png");
+    var formData = new FormData();
+    formData.append("avatar", file, "avatar.png");
+    console.log(file);
+    $.ajax(apiURL + "avatar.php?CodySESSION=" + getCookie("PHPSESSID"), {
+        type: "POST",
+        async: true,
+        data: formData,
+        crossDomain: true,
+        contentType: false,
+        processData: false,
+        datatype: "jsonp",
+        success: function (data) {
+            let status = data['status'];
+            if (status == "successful") {
+                console.log("Change av success");
+                alert("<t data-i18n='changeavatar.success'></t>");
+                changeLanguage();
+                openO("main");
+                refreshInfo();
             }
-        });
+            else if (status == "error") {
+                console.error("Change av error: " + data['info']);
+                alert("<t data-i18n='changeavatar.error'></t>" + data['info']);
+                changeLanguage();
+                openO("main");
+                refreshInfo();
+            }
+        },
+        error: function () {
+            console.error("Change av error: Network error.");
+            alert("<t data-i18n='changeavatar.error'></t><t data-i18n='networkerror'></t>");
+            changeLanguage();
+            openO("main");
+            refreshInfo();
+        }
+    });
+}
+
+//将base64转换为blob
+function dataURLtoBlob(dataurl) {
+    var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
     }
-    changeLanguage();
-    avatarURL.value = "";
-    openO("main");
-    refreshInfo();
+    return new Blob([u8arr], { type: mime });
+}
+
+//将blob转换为file
+blobToFile = function (theBlob, fileName) {
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
 }

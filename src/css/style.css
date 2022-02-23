@@ -315,6 +315,18 @@ table{
     color: var(--buttongrey);
     line-height: 1.8;
 }
+#avatar_imageInput{
+    display: block;
+    width: calc(100% - 16px);
+    margin: 6px 0 8px 0;
+}
+#cropperImg{
+    width: 100px;
+    height: 26vh;
+}
+.cropper-container{
+    margin: 10px 0;
+}
 @media (max-width: 650px) {
     .logBox:not(full){
         position: fixed;

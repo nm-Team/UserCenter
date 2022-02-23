@@ -10,6 +10,7 @@
 	<meta name='apple-mobile-web-app-status-bar-style' content='black'>
 	<meta name='format-detection' content='telephone=no'>
 	<link rel="stylesheet" type="text/css" href="src/css/style.css">
+	<link rel="stylesheet" type="text/css" href="src/css/cropper.min.css">
 	<script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
 </head>
 
@@ -22,7 +23,7 @@
 			<t data-i18n="info.h1"></t>
 		</h1>
 		<div id="userHead">
-			<i id="avatar" onclick="openO('changeAvatar');" title="Click to edit your avatar" tabindex="0"
+			<i id="avatar" onclick="openO('changeAvatar_0');" title="Click to edit your avatar" tabindex="0"
 				onkeydown="divClick(this, event)"></i>
 			<p id="nick"></p>
 			<p>
@@ -83,17 +84,30 @@
 				<button onclick="changePassword();" data-i18n="info.changePassword"></button>
 				<button onclick="openO('main');" data-i18n="info.close"></button>
 			</div>
-			<div class="infoDiv" id="changeAvatar">
+			<div class="infoDiv" id="changeAvatar_0">
 				<h2 data-i18n="changeavatar.name"></h2>
-				<t data-i18n="changeavatar.tip0"></t><br />
-				<t data-i18n="changeavatar.tip1"></t><br />
-				<t data-i18n="changeavatar.tip2"></t> <a href="https://img.cncn3.cn?from=nmteam"
-					target="_blank">img.cncn3.cn</a><br />
-				<input id="avatarURL" placeholder="https://">
-				<t data-i18n="changeavatar.tip3"></t> <button onclick="uploadAvatar();"
-					data-i18n="changeavatar.uploadbutton"></button><br />
-				<button onclick="changeAvatar();" data-i18n="info.changeAvatar"></button>
-				<button onclick="openO('main');" data-i18n="info.close"></button>
+				<t data-i18n="changeavatar.tip0_0"></t><br />
+				<t data-i18n="changeavatar.tip0_1"></t><br />
+				<input type="file" title="Please upload a photo" id="avatar_imageInput" accept="image/*"
+					data-i18n="changeavatar.uploadbutton">
+				<button onclick="openO('main');" data-i18n="changeavatar.cancel"></button>
+			</div>
+			<div class="infoDiv" id="changeAvatar_1">
+				<h2 data-i18n="changeavatar.crop"></h2>
+				<t data-i18n="changeavatar.tip1_0"></t><br />
+				<img id="cropperImg">
+				<button onclick="avatarAccess.style.display='block';"
+					data-i18n="changeavatar.accessibility_crop"></button>
+				<div id="avatarAccess" style="display: none;">
+					<button onclick="cropper.move(0,10)" title="Up" data-i18n="changeavatar.move.up"></button>
+					<button onclick="cropper.move(0,-10)" title="Down" data-i18n="changeavatar.move.down"></button>
+					<button onclick="cropper.move(10,0)" title="Left" data-i18n="changeavatar.move.left"></button>
+					<button onclick="cropper.move(-10,0)" title="Right" data-i18n="changeavatar.move.right"></button>
+					<button onclick="cropper.zoom(0.1)" title="Up" data-i18n="changeavatar.move.rp"></button>
+					<button onclick="cropper.zoom(-0.1)" title="Up" data-i18n="changeavatar.move.rs"></button>
+				</div>
+				<button onclick="openO('main');" data-i18n="changeavatar.cancel"></button>
+				<button onclick="changeAvatar();" data-i18n="changeavatar.confirm_crop" style="float: right;"></button>
 			</div>
 		</div>
 	</div>
@@ -101,6 +115,7 @@
 
 	<script src="src/js/jquery.min.js"></script>
 	<script src="src/js/i18next-1.6.3.min.js"></script>
+	<script src="src/js/cropper.min.js"></script>
 	<script src="src/js/main.js"></script>
 	<script src="src/js/info.js"></script>
 	<script src="src/js/language.js"></script>
