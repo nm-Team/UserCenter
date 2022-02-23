@@ -44,6 +44,7 @@
 		"success": "Successfully set your avatar. You should be able to view your new avatar later.",
 		"tip0_0": "Please select a photo from your device.",
 		"tip0_1": "After uploading an image, you will be able to proceed to the next step.",
+		"tip0_2": "Please ensure that the avatar does not contain unhealthy or prohibited content by relevant laws and regulations and nmTeam, otherwise your account may be disabled.",
 		"tip1_0": "Please crop this photo.",
 		"tip3": "After adjusting the photo to an appropriate size, please confirm to set the avatar.",
 		"uploadbutton": "Upload Image"
