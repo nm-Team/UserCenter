@@ -26,15 +26,28 @@
 	},
 	"captcha": "驗證碼",
 	"changeavatar": {
-		"error": "抱歉，由於出現錯誤，未能成功設置頭像。詳細信息：",
-		"givealink": "請提供有效的圖片地址。",
-		"name": "設置頭像",
-		"success": "設置頭像成功。",
-		"tip0": "更新您的 nmTeam Account 頭像。",
-		"tip1": "請填寫使用 https 協議並直接鏈接到圖像的 URL，例如 https://example.com/example.png。",
-		"tip2": "您可以將圖片上傳到圖床並獲取鏈接。",
-		"tip3": "您也可以直接上傳頭像圖片文件：",
-		"uploadbutton": "上傳圖片"
+		"accessibility_crop": "無障礙模式",
+		"cancel": "取消",
+		"confirm_crop": "裁剪",
+		"crop": "裁剪",
+		"error": "抱歉，由於出現錯誤，未能成功設置大頭貼。詳細信息：",
+		"move": {
+			"down": "下移",
+			"left": "左移",
+			"right": "右移",
+			"rp": "放大",
+			"rs": "縮小",
+			"up": "上移"
+		},
+		"name": "設置大頭貼",
+		"skip_crop": "跳過",
+		"success": "設置大頭貼成功。稍後您應該可以查看您的新大頭貼。",
+		"tip0_0": "請從設備中選擇一張相片。",
+		"tip0_1": "上傳一張相片後，您將可以進行下一步。",
+		"tip0_2": "請確保大頭貼不包含不健康或相關法律法規與 nmTeam 規定禁止的內容，否則您的賬號可能被禁用。",
+		"tip1_0": "請裁剪這張相片。",
+		"tip3": "將相片調整到合適的大小後，請確認設置大頭貼。",
+		"uploadbutton": "上傳相片"
 	},
 	"changeinfo": {
 		"error": "抱歉，由於出現錯誤，未能成功修改用戶信息。詳細信息：",
@@ -61,7 +74,7 @@
 	"ifCantLogin0": "無法完成登錄或使用 Safari？",
 	"ifCantLogin1": "查看無法登錄疑難解答",
 	"info": {
-		"changeAvatar": "設置新頭像",
+		"changeAvatar": "設置新大頭貼",
 		"changeInfo": "更改信息",
 		"changePassword": "修改密碼",
 		"close": "關閉",
