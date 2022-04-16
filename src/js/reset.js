@@ -6,7 +6,7 @@ function sendResetEmail() {
         $.ajax(apiURL + "resetpassword.php", {
             type: "POST",
             async: true,
-            data: { "email": email.value, "g-recaptcha-response": grecaptcha.getResponse(), "sessionid": getCookie("PHPSESSID") },
+            data: { "email": email.value, "g-recaptcha-response": grecaptcha.getResponse(), "sessionid": getCookie("sessionid") || getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
                 success: function (data) {
@@ -61,7 +61,7 @@ function resetPassword() {
         $.ajax(apiURL + "verification.php?action=resetPassword", {
             type: "POST",
             async: true,
-            data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time"), "pass": passwd, "sessionid": getCookie("PHPSESSID") },
+            data: { "user": getQueryVariable("user"), "code": getQueryVariable("code"), "time": getQueryVariable("time"), "pass": passwd, "sessionid": getCookie("sessionid") || getCookie("PHPSESSID") },
             crossDomain: true,
             datatype: "jsonp",
                 success: function (data) {
