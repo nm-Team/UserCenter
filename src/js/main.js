@@ -54,7 +54,7 @@ function login() {
                 if (status == "successful") {
                     info.innerHTML = "<t data-i18n='logok'></t>";
                     changeLanguage();
-                    document.cookie = "PHPSESSID=" + data['sessionid'] + "; domain=" + window.location.hostname + "; path=/";
+                    document.cookie = "sessionid=" + data['sessionid'] + "; domain=" + window.location.hostname + "; path=/";
                     goWith(data['sessionid']);
                 } else if (status == "error") {
                     info.innerHTML = "<t data-i18n='errorOccured'></t>" + data['info'];
@@ -121,7 +121,7 @@ function register() {
 }
 
 function logout(showMsg = true) {
-    $.ajax(apiURL + "logout.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(apiURL + "logout.php?CodySESSION=" + getCookie("sessionid") || getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -156,7 +156,7 @@ function time() {
 }
 
 function alreadyLogged() {
-    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(apiURL + "userinfo.php?CodySESSION=" + getCookie("sessionid") || getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -169,7 +169,7 @@ function alreadyLogged() {
                 try {
                     useCurrentToLogBox.className = "open";
                     useCurrentToLogButton.innerHTML = i18n.t('continueas') + " " + data['info']['nick'] + " (" + data['info']['user'] + ")";
-                    useCurrentToLogButton.onclick = function () { goWith(getCookie("PHPSESSID")); };
+                    useCurrentToLogButton.onclick = function () { goWith(getCookie("sessionid") || getCookie("PHPSESSID")); };
                 }
                 catch (err) {
                     console.log("No continue div.");

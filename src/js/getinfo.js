@@ -4,7 +4,7 @@ var manageURL = "https://accounts.nmteam.xyz";
 getSessionId();
 
 function getInfo(fun = function () { }) {
-    $.ajax(infoApiURL + "userinfo.php?CodySESSION=" + getCookie("PHPSESSID"), {
+    $.ajax(infoApiURL + "userinfo.php?CodySESSION=" + getCookie("sessionid") || getCookie("PHPSESSID"), {
         type: "POST",
         async: true,
         data: {},
@@ -65,7 +65,7 @@ function getSessionId() {
         else longLog = "";
         sessionid = getQueryVariable("sessionid");
         // 目前逻辑暂时设定为直接访问用户中心的登录的是他们最后一次通过各种方式访问的账号，所以此处不做什么区分
-        document.cookie = "PHPSESSID=" + sessionid + "; domain=" + window.location.hostname + "; path=/" + longLog;
+        document.cookie = "sessionid=" + sessionid + "; domain=" + window.location.hostname + "; path=/" + longLog;
         console.log("GetInfo: Get sessionid.");
         // 肥水不流外人田，存进Cookie之后在地址栏隐藏sessionid
         setTimeout(() => {
